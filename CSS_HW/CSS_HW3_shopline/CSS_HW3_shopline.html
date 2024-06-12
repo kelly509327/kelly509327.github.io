@@ -8,20 +8,21 @@
     <style>
         *{
             color: #052855;
-        }
-        blockquote{
+        
+        } 
+        .foreword{
             background-color:#f7f8f9;
             height: 150px;
             text-align: center;
-            padding: 50px; 
+            padding: 50px;
         }
-        blockquote h2{
+        .foreword h2{
             font-size: 32px;
             font-weight: bold;
             line-height: 1.5;
             margin: 0 0 20px;
         }
-        blockquote p{
+        .foreword p{
             font-size: 16px;
         }
         .card-list{
@@ -54,7 +55,6 @@
             margin: 30px 0px ;
         }
         .pic{
-            /* width: 539px; */
             height: 480px;
         } 
         .pic img{
@@ -78,7 +78,7 @@
             color:#0061ff; 
             font-size: 28px; 
         }
-        span a.detail{
+        .detail{
             padding: 10px 10px 10px 0;
             text-decoration: none;
             color: #0061ff;
@@ -86,14 +86,14 @@
             text-underline-offset: 6px;
             text-decoration-thickness: 2px;
         }
-        span a.arrow img{ 
+        .arrow img{ 
             width: 20px;
             height: 20px;
             text-decoration: none;
             padding: 10px;
             position: relative;
-            top: 15px;
-            right: 15px;
+            top: 14px;
+            /* right: 5px; */
         }
         .more-function{
             background-color:#f7f8f9;
@@ -127,14 +127,14 @@
     </style>
 </head>
 <body>
-<blockquote>
+<section class="foreword">
     <h2>
         單一平台就能助你<br>在全通路輕鬆開店創業
     </h2>
     <p>
         從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，並能同步管理所有銷售管SHOPLINE 助你賣得更多、賣得更好！
     </p>
-</blockquote>
+</section>
 
 <section class="card-list">
     <div class="card">
@@ -153,13 +153,16 @@
                 <li>一頁商店</li>
                 <li>開放 HTML／CSS 編輯</li>
             </ul>
-            <span>
-                <a class="detail" href="">看看開店秘技</a>
-                <a class="arrow" href=""><img src="/CSS_HW/CSS_HW3_shopline/arrowicon.png" alt="arrow"></a>
-            </span>
+
+            <a class="detail" href="">
+                看看開店秘技
+                <span class="arrow">
+                    <img src="/CSS_HW3_shopline/arrowicon.png" alt="arrow">
+                </span>
+            </a>
         </div>
         <div class="pic">
-            <img src="/CSS_HW/CSS_HW3_shopline/pic1.webp" alt="">
+            <img src="/CSS_HW3_shopline/pic1.webp" alt="">
         </div>
     </div>
     <div class="card">
@@ -178,13 +181,15 @@
                 <li>超商代碼／條碼繳費</li>
                 <li>發票開立與串接</li>
             </ul>
-            <span>
-                <a class="detail" href="">了解更多金物流</a>
-                <a class="arrow" href=""><img src="/CSS_HW/CSS_HW3_shopline/arrowicon.png" alt="arrow"></a>
-            </span>
+            <a class="detail" href="">
+                了解更多金物流
+                <span class="arrow">
+                    <img src="/CSS_HW3_shopline/arrowicon.png" alt="arrow">
+                </span>
+            </a>
         </div>
         <div class="pic">
-            <img src="/CSS_HW/CSS_HW3_shopline/pic2.webp" alt="">
+            <img src="/CSS_HW3_shopline/pic2.webp" alt="">
         </div>
     </div>
     <div class="card">
@@ -203,13 +208,15 @@
                 <li>會員分級／點數／購物金</li>
                 <li>FB／Google／LINE 廣告追蹤</li>
             </ul>
-            <span>
-                <a class="detail" href="">看更多優惠模組</a>
-                <a class="arrow" href=""><img src="/CSS_HW/CSS_HW3_shopline/arrowicon.png" alt="arrow"></a>
-            </span>
+            <a class="detail" href="">
+                看更多優惠模組
+                <span class="arrow">
+                    <img src="/CSS_HW3_shopline/arrowicon.png" alt="arrow">
+                </span>
+            </a>
         </div>
         <div class="pic">
-            <img src="/CSS_HW/CSS_HW3_shopline/pic3.webp" alt="">
+            <img src="/CSS_HW3_shopline/pic3.webp" alt="">
         </div>
     </div>
     <div class="card">
@@ -228,13 +235,15 @@
                 <li>自訂聊天機器人腳本</li>
                 <li>訊息整合中心</li>
             </ul>
-            <span>
-                <a class="detail" href="">看更多社群購物功能</a>
-                <a class="arrow" href=""><img src="/CSS_HW/CSS_HW3_shopline/arrowicon.png" alt="arrow"></a>
-            </span>
+            <a class="detail" href="">
+                看更多社群購物功能
+                <span class="arrow">
+                    <img src="/CSS_HW3_shopline/arrowicon.png" alt="arrow">
+                </span>
+            </a>
         </div>
         <div class="pic">
-            <img src="/CSS_HW/CSS_HW3_shopline/pic4.webp" alt="">
+            <img src="/CSS_HW3_shopline/pic4.webp" alt="">
         </div>
     </div>
     <div class="card">
@@ -253,13 +262,15 @@
                 <li>門市快速集客工具</li>
                 <li>Smart OMO 會員導購工具</li>
             </ul>
-            <span>
-                <a class="detail" href="">了解更多全通路整合</a>
-                <a class="arrow" href=""><img src="/CSS_HW/CSS_HW3_shopline/arrowicon.png" alt="arrow"></a>
-            </span>
+            <a class="detail" href="">
+                了解更多全通路整合
+                <span class="arrow">
+                    <img src="/CSS_HW3_shopline/arrowicon.png" alt="arrow">
+                </span>
+            </a>
         </div>
         <div class="pic">
-            <img src="/CSS_HW/CSS_HW3_shopline/pic5.webp" alt="">
+            <img src="/CSS_HW3_shopline/pic5.webp" alt="">
         </div>
     </div>
 </section>
@@ -267,37 +278,40 @@
     <h3>更多功能與服務</h3>
     <ul>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 0.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 0.svg" alt="">
             <h4>強大庫存與訂單系統</h4>
             <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
         </li>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 1.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 1.svg" alt="">
             <h4>即時化商店業績分析</h4>
             <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
         </li>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 2.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 2.svg" alt="">
             <h4>多國語系、幣值切換</h4>
             <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
         </li>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 3.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 3.svg" alt="">
             <h4>專業顧問線上支援</h4>
             <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
         </li>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 4.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 4.svg" alt="">
             <h4>廣告行銷加值服務</h4>
             <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
         </li>
         <li>
-            <img src="/CSS_HW/CSS_HW3_shopline/asset 5.svg" alt="">
+            <img src="/CSS_HW3_shopline/asset 5.svg" alt="">
             <h4>品牌專屬成長社群</h4>
             <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
         </li>
     </ul>
 
+</section>
+<section>
+    
 </section>
 
 </body>
