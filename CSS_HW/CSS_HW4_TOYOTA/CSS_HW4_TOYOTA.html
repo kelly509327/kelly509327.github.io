@@ -5,29 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./FONT/static/PlaywritePL-Regular.ttf">
     <style>
+        /* .info 沒有因為文字的多少而改變高度，文字也沒有很置中
+            even的video_button、feature_title p、background因為用定位，所以沒有跟著reverse轉
+            card的高度包不住裡面的物件，只好先設定固定高度
+            pic包不住img，img會凸出去
+            feature_title p 中的01，會凸出去
+            動畫
+        */
+
+        @font-face {
+            font-family: 'FontName';
+            src: url(./FONT/static/PlaywritePL-Thin.ttf);
+        }
+        .card_list{
+            display: flex;
+            flex-wrap: wrap;
+            margin:auto;
+            justify-content: center;
+        }
+        .card_list .card:nth-child(even){
+            flex-direction: row-reverse;
+        }
         .card{
             width: 960px;
+            height: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            /* justify-content: space-between; */
+            /* overflow: hidden; */
+            margin: 50px 0;
         }
         .feature{
             width: 320px;
             color: #fff;
+            margin-top: 0;
+            margin-left: 0;
+            z-index: 1;
         }
         .feature_title{
+            position: relative;
             height: 145px;
             background-color: #bb0404;
             display: flex;
             flex-wrap: wrap;
+            z-index: 1;
         }
-        .feature_title h1{
-            font-size: 48px;    
+        .feature_title .txt{
+            display: inline-block;
+            font-size: 50px;
             line-height: 145px;
+            transform: translate(110px);
         }
-        .feature_title p{
-            font-size: 125px;
+        .feature_title .txt_even{
+            display: inline-block;
+            font-size: 50px;
+            line-height: 145px;
+            transform: translate(20px);
+        }
+        .feature_title .font{
+            display: inline-block;
+            font-size: 90px;
             transform: rotate(90deg);
-            /* transform-origin: bottom left; */
-            margin-bottom: -200px;
+            /* translateY(40px) translate(8px) */
+            font-family: 'FontName';
+            /* font-style: normal; */
+            position: absolute;
+            left: -28px;
+            top: 25px;
+        }
+        .feature_title .font_even{
+            display: inline-block;
+            font-size: 90px;
+            transform: rotate(90deg);
+            font-family: 'FontName';
+            /* font-style: normal; */
+            position: absolute;
+            left: 200px;
+            top: 25px;
         }
         .info{
             background-color: black;
@@ -41,18 +98,36 @@
         .info p{
             font-size: 18px;
         }
-
         .innovation{
             padding: 20px;
             width: 640px;
             background-color: #eee;
+            /* margin-top: auto; */
+            z-index: 1;
+            transform: translateY(-8px);
+            position: absolute;
+            top: 545px;
         }
-        .innovation span{
+        .innovation .repeat{
+            display: flex;
+            width: 640px;
             flex-direction: column;
             text-align: middle;
             color: #bb0404;
-            font-size: 17px;
             font-weight: bolder;
+            display: inline-block;
+        }
+        .innovation .repeat_txt{
+            width: 180px;
+            text-align: middle;
+            font-size: 17px;
+            display: inline-block;
+        }
+        .innovation .repeat_border{
+            width: 450px;
+            border-top: 1px solid #bb0404;
+            transform: translateY(-5px);
+            display: inline-block;
         }
         .innovation h3{
             margin: 10px 0;
@@ -76,53 +151,105 @@
             width: 620px;
         }
         .innovation p::before{
-            content: ""; /* 空內容 */
-            display: inline-block; /* 將偽元素設置為行內元素 */
-            width: 2.8px; /* 正方形小點的寬度 */
-            height: 2.8px; /* 正方形小點的高度 */
-            margin-right: 4px; /* 右邊距，確保小點和文本之間有間距 */
-            background-color: #bb0404; /* 正方形小點的背景顏色 */
-            vertical-align: middle; /* 垂直對齊方式 */
+            content: ""; 
+            display: inline-block; 
+            width: 2.8px; 
+            height: 2.8px;
+            margin-right: 4px; 
+            background-color: #bb0404;
+            vertical-align: middle;
         }
         .background{
             width: 480px;
             height: 200px;
+            margin: 48px 0 0;
+            transform: translate(159px);
+            background-color: #f4f4f4;
+        }
+        .background_even{
+            width: 480px;
+            height: 200px;
+            /* margin: 48px 0 0; */
+            transform: translate(200px) translateY(60px);
             background-color: #f4f4f4;
         }
         .video{
             display: flex;
+            position: absolute;
+            top: 145px;
+            left: 150px;
+            /* position: relative;
+            margin-top: -562px;
+            margin-left: 150px; */
         }
-        .play_btn{
-            width: 55px;
-            height: 36px;
+        .video_button{
+            display: inline-block;
+            position: absolute;
+            top: 200px;
+            left: 670px;
+            /* transform: translateY(200px); */
+            width: 56px;
+            height: 37px;
             background-color: #bb0404;
-            clip-path: polygon(0% 0%, 0% 100%, 34% 100%, 34% 25%, 75% 50%, 34% 75%, 34% 100%, 100% 100%, 100% 0%);
+        }
+        .video_button::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom:10px solid transparent;
+            border-left: 20px solid #fff;
+            margin-left: 19px;
+            margin-top: 8px;
+            display: block;
+        }
+        .video_button_even{
+            display: inline-block;
+            position: absolute;
+            top: 200px;
+            left: -10px;
+            width: 56px;
+            height: 37px;
+            background-color: #bb0404;
+        }
+        .video_button_even::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom:10px solid transparent;
+            border-left: 20px solid #fff;
+            margin-left: 19px;
+            margin-top: 8px;
+            display: block;
         }
         .img{
             width: 100%;
         }
         .pic{
             width: 672px;
-            vertical-align: top;
         }
-        
     </style>
 </head>
 <body>
-    <section>
+    <section class="card_list">
         <div class="card">
             <div class="feature">
                 <div class="feature_title">
-                    <p>01</p>
-                    <h1>操控樂趣</h1>
+                    <p class="font">01</p>
+                    <h1 class="txt">操控樂趣</h1>
                 </div>
                 <div class="info">
                     <h2>人人滿意的駕駛體驗</h2>
                     <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
                 </div>
             </div>
+            <div class="background"></div>
             <div class="innovation">
-                <span>因為我們做了這些革新</span>
+                <div class="repeat">
+                    <div class="repeat_txt">因為我們做了這些革新</div>
+                    <span class="repeat_border"></span>
+                </div>
                 <ul>
                     <li>
                         <h3>低重心設計</h3>
@@ -138,12 +265,155 @@
                     </li>
                 </ul>
             </div>
-            <!-- a的地方要調整，pic和play_btn兩個應該是分開的 -->
             <a href="#" class="video">
                 <div class="pic">
                     <img src="./01.png" alt="">
                 </div>
-                <span class="play_btn"></span>
+                <span class="video_button"></span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="feature">
+                <div class="feature_title">
+                    <p class="font_even">02</p>
+                    <h1 class="txt_even">安全守護</h1>
+                </div>
+                <div class="info">
+                    <h2>行車更安心的高剛性車體</h2>
+                    <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+                </div>
+            </div>
+            <div class="background_even"></div>
+            <div class="innovation">
+                <div class="repeat">
+                    <div class="repeat_txt">因為我們做了這些革新</div>
+                    <span class="repeat_border"></span>
+                </div>
+                <ul>
+                    <li>
+                        <h3>主動安全</h3>
+                        <p>以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</p>
+                    </li>
+                    <li>
+                        <h3>被動安全</h3>
+                        <p>堅固的高剛性車體，使用熱沖壓成材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="video">
+                <div class="pic">
+                    <img src="./02.png" alt="">
+                </div>
+                <span class="video_button_even"></span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="feature">
+                <div class="feature_title">
+                    <p class="font">03</p>
+                    <h1 class="txt">乘坐舒適</h1>
+                </div>
+                <div class="info">
+                    <h2>令人放鬆舒適的車室空間</h2>
+                    <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                </div>
+            </div>
+            <div class="background"></div>
+            <div class="innovation">
+                <div class="repeat">
+                    <div class="repeat_txt">因為我們做了這些革新</div>
+                    <span class="repeat_border"></span>
+                </div>
+                <ul>
+                    <li>
+                        <h3>駕駛位置最佳化</h3>
+                        <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
+                    </li>
+                    <li>
+                        <h3>駕馭視野佳</h3>
+                        <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</p>
+                    </li>
+                    <li>
+                        <h3>更寧靜的車室</h3>
+                        <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="video">
+                <div class="pic">
+                    <img src="./03.png" alt="">
+                </div>
+                <span class="video_button"></span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="feature">
+                <div class="feature_title">
+                    <p class="font_even">04</p>
+                    <h1 class="txt_even">以人為本</h1>
+                </div>
+                <div class="info">
+                    <h2>使用者導向的貼心設計</h2>
+                    <p>藉由高度人性化的介面整合，傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應</p>
+                </div>
+            </div>
+            <div class="background_even"></div>
+            <div class="innovation">
+                <div class="repeat">
+                    <div class="repeat_txt">因為我們做了這些革新</div>
+                    <span class="repeat_border"></span>
+                </div>
+                <ul>
+                    <li>
+                        <h3>優異油耗表現</h3>
+                        <p>以Corolla Sport為例，更強勁的高效引擎將熱效率提升40%，達到世界級水準，屢屢突破燃油效率新境界</p>
+                    </li>
+                    <li>
+                        <h3>行李箱空間最適化</h3>
+                        <p>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="video">
+                <div class="pic">
+                    <img src="./04.png" alt="">
+                </div>
+                <span class="video_button_even"></span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="feature">
+                <div class="feature_title">
+                    <p class="font">05</p>
+                    <h1 class="txt">引以為傲</h1>
+                </div>
+                <div class="info">
+                    <h2>極具吸引力的精心設計</h2>
+                    <p>TNGA車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。</p>
+                </div>
+            </div>
+            <div class="background"></div>
+            <div class="innovation">
+                <div class="repeat">
+                    <div class="repeat_txt">因為我們做了這些革新</div>
+                    <span class="repeat_border"></span>
+                </div>
+                <ul>
+                    <li>
+                        <h3>設計概念</h3>
+                        <p>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</p>
+                    </li>
+                    <li>
+                        <h3>環保概念</h3>
+                        <p>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="video">
+                <div class="pic">
+                    <img src="./05.png" alt="">
+                </div>
+                <span class="video_button"></span>
             </a>
         </div>
     </section>

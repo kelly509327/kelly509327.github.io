@@ -4,19 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./FONT/static/PlaywritePL-Regular.ttf">
     <style>
-        .sqr{
-        width: 0px;
-        height: 100px;
-        border-top: 180px solid red;
-        border-left: 300px solid yellow;
-        clip-path: polygon(33% 25%, 66% 50%, 33% 75%);
-        border-right: 90px solid blue;
-        border-bottom: 180px solid greenyellow
+        /* .info 沒有因為文字的多少而改變高度，文字也沒有很置中
+            even的video_button、feature_title p、background因為用定位，所以沒有跟著reverse轉
+            card的高度包不住裡面的物件，只好先設定固定高度
+            pic包不住img，img會凸出去
+            feature_title p 中的01，會凸出去
+            動畫
+        */
+
+        @font-face {
+            font-family: 'FontName';
+            src: url(./FONT/static/PlaywritePL-Thin.ttf);
         }
+        .card_list{
+            display: flex;
+            flex-wrap: wrap;
+            margin:auto;
+            flex-direction: column;
+            align-content: center;
+        }
+        .card_list .card:nth-child(even){
+            flex-direction: row-reverse;
+        }
+        .card{
+            width: 960px;
+            height: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            flex-direction: column;
+            align-content: start;
+            /* justify-content: space-between; */
+            /* overflow: hidden; */
+            margin: 50px 0;
+        }
+        .feature{
+            width: 320px;
+            color: #fff;
+            margin-top: 0;
+            margin-left: 0;
+            z-index: 1;
+        }
+        .feature_title{
+            position: relative;
+            height: 145px;
+            background-color: #bb0404;
+            display: flex;
+            flex-wrap: wrap;
+            z-index: 1;
+        }
+        .feature_title h1{
+            display: inline-block;
+            font-size: 50px;
+            line-height: 145px;
+            transform: translate(110px);
+        }
+        .feature_title p{
+            display: inline-block;
+            font-size: 90px;
+            transform: rotate(90deg);
+            /* translateY(40px) translate(8px) */
+            font-family: 'FontName';
+            font-style: normal;
+            position: absolute;
+            left: -28px;
+            top: 25px;
+        }
+        .info{
+            background-color: black;
+            line-height: 1.8;
+            padding: 20px 18px 70px;
+        }
+        .info h2{
+            font-size: 23px;
+            font-weight: bold;
+        }
+        .info p{
+            font-size: 18px;
+        }
+        .innovation{
+            padding: 20px;
+            width: 640px;
+            background-color: #eee;
+            /* margin-top: auto; */
+            z-index: 1;
+            transform: translateY(-8px);
+            position: absolute;
+            top: 545px;
+        }
+        .innovation .repeat{
+            display: flex;
+            width: 640px;
+            flex-direction: column;
+            text-align: middle;
+            color: #bb0404;
+            font-weight: bolder;
+            display: inline-block;
+        }
+        .innovation .repeat_txt{
+            width: 180px;
+            text-align: middle;
+            font-size: 17px;
+            display: inline-block;
+        }
+        .innovation .repeat_border{
+            width: 450px;
+            border-top: 1px solid #bb0404;
+            transform: translateY(-5px);
+            display: inline-block;
+        }
+        .innovation h3{
+            margin: 10px 0;
+            padding: 5px;
+            background-color: #000;
+            border-radius: 2px;
+            display: inline-block;
+            color: #fff;
+            font-weight: 5;
+            font-size: 16px;
+        }
+        .innovation li{
+            color: #747474;
+            line-height: 1.2;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .innovation p{
+            padding: 0 0 0 10px;
+            text-indent: -6.5px;
+            width: 620px;
+        }
+        .innovation p::before{
+            content: ""; 
+            display: inline-block; 
+            width: 2.8px; 
+            height: 2.8px;
+            margin-right: 4px; 
+            background-color: #bb0404;
+            vertical-align: middle;
+        }
+        .background{
+            width: 480px;
+            height: 200px;
+            margin: 48px 0 0;;
+            background-color: #f4f4f4;
+        }
+        .video{
+            display: flex;
+            position: absolute;
+            top: 145px;
+            left: 150px;
+            /* position: relative;
+            margin-top: -562px;
+            margin-left: 150px; */
+        }
+        .video_button{
+            display: inline-block;
+            position: absolute;
+            top: 200px;
+            left: 670px;
+            /* transform: translateY(200px); */
+            width: 56px;
+            height: 37px;
+            background-color: #bb0404;
+        }
+        .video_button::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom:10px solid transparent;
+            border-left: 20px solid #fff;
+            margin-left: 19px;
+            margin-top: 8px;
+            display: block;
+        }
+        .img{
+            width: 100%;
+        }
+        .pic{
+            width: 672px;
+        }
+        
     </style>
 </head>
-<body> 
-<div class="sqr"></div>  
+<body>
+    <section class="card_list">
+        <div class="card">
+            <div class="feature">
+                <div class="feature_title">
+                    <p class="font">01</p>
+                    <h1 class>操控樂趣</h1>
+                </div>
+                <div class="info">
+                    <h2>人人滿意的駕駛體驗</h2>
+                    <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+                </div>
+            </div>
+            <div class="background"></div>
+        </div>
+    </section>
 </body>
 </html>
