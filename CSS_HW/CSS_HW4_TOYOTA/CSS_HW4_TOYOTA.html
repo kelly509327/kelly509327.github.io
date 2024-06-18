@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./FONT/static/PlaywritePL-Regular.ttf">
     <style>
-        /* .info 沒有因為文字的多少而改變高度，文字也沒有很置中
-            even的video_button、feature_title p、background因為用定位，所以沒有跟著reverse轉
-            card的高度包不住裡面的物件，只好先設定固定高度
-            pic包不住img，img會凸出去
-            feature_title p 中的01，會凸出去
-            動畫
-        */
-
         @font-face {
             font-family: 'FontName';
             src: url(./FONT/static/PlaywritePL-Thin.ttf);
@@ -34,8 +26,6 @@
             display: flex;
             flex-wrap: wrap;
             position: relative;
-            /* justify-content: space-between; */
-            /* overflow: hidden; */
             margin: 50px 0;
         }
         .feature{
@@ -69,9 +59,7 @@
             display: inline-block;
             font-size: 90px;
             transform: rotate(90deg);
-            /* translateY(40px) translate(8px) */
             font-family: 'FontName';
-            /* font-style: normal; */
             position: absolute;
             left: -28px;
             top: 25px;
@@ -81,7 +69,6 @@
             font-size: 90px;
             transform: rotate(90deg);
             font-family: 'FontName';
-            /* font-style: normal; */
             position: absolute;
             left: 200px;
             top: 25px;
@@ -102,7 +89,6 @@
             padding: 20px;
             width: 640px;
             background-color: #eee;
-            /* margin-top: auto; */
             z-index: 1;
             transform: translateY(-8px);
             position: absolute;
@@ -169,7 +155,6 @@
         .background_even{
             width: 480px;
             height: 200px;
-            /* margin: 48px 0 0; */
             transform: translate(200px) translateY(60px);
             background-color: #f4f4f4;
         }
@@ -178,16 +163,12 @@
             position: absolute;
             top: 145px;
             left: 150px;
-            /* position: relative;
-            margin-top: -562px;
-            margin-left: 150px; */
         }
         .video_button{
             display: inline-block;
             position: absolute;
             top: 200px;
             left: 670px;
-            /* transform: translateY(200px); */
             width: 56px;
             height: 37px;
             background-color: #bb0404;
