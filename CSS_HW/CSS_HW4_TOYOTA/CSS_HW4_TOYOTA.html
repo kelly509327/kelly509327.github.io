@@ -19,6 +19,7 @@
         }
         .card_list .card:nth-child(even){
             flex-direction: row-reverse;
+            transform: translate(-150px);
         }
         .card{
             width: 960px;
@@ -119,7 +120,7 @@
             margin: 10px 0;
             padding: 5px;
             background-color: #000;
-            border-radius: 2px;
+            border-radius: 3px;
             display: inline-block;
             color: #fff;
             font-weight: 5;
@@ -184,7 +185,7 @@
             margin-top: 8px;
             display: block;
         }
-        .video_button:nth-child(even){
+        .video_button_even{
             display: inline-block;
             position: absolute;
             top: 200px;
@@ -193,7 +194,7 @@
             height: 37px;
             background-color: #bb0404;
         }
-        .video_button:nth-child(even)::before{
+        .video_button_even::before{
             content: '';
             width: 0;
             height: 0;
@@ -278,7 +279,7 @@
                 <div class="pic">
                     <img src="./02.png" alt="">
                 </div>
-                <span class="video_button"></span>
+                <span class="video_button_even"></span>
             </a>
         </div>
         <div class="card">
@@ -345,7 +346,7 @@
                 <div class="pic">
                     <img src="./04.png" alt="">
                 </div>
-                <span class="video_button"></span>
+                <span class="video_button_even"></span>
             </a>
         </div>
         <div class="card">
