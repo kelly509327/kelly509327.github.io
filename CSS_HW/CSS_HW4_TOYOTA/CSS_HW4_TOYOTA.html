@@ -90,7 +90,7 @@
             width: 640px;
             background-color: #eee;
             z-index: 1;
-            transform: translateY(-8px);
+            transform: translateY(0px);
             position: absolute;
             top: 545px;
         }
@@ -111,11 +111,11 @@
         }
         .innovation .repeat_border{
             width: 450px;
-            border-top: 1px solid #bb0404;
-            transform: translateY(-5px);
+            border-top: 1.5px solid #bb0404;
+            transform: translateY(-4px);
             display: inline-block;
         }
-        .innovation h3{
+        .innovation dt{
             margin: 10px 0;
             padding: 5px;
             background-color: #000;
@@ -125,18 +125,18 @@
             font-weight: 5;
             font-size: 16px;
         }
-        .innovation li{
+        .innovation dl{
             color: #747474;
             line-height: 1.2;
             font-weight: bold;
             font-size: 16px;
         }
-        .innovation p{
+        .innovation dd{
             padding: 0 0 0 10px;
             text-indent: -6.5px;
             width: 620px;
         }
-        .innovation p::before{
+        .innovation dd::before{
             content: ""; 
             display: inline-block; 
             width: 2.8px; 
@@ -231,20 +231,16 @@
                     <div class="repeat_txt">因為我們做了這些革新</div>
                     <span class="repeat_border"></span>
                 </div>
-                <ul>
-                    <li>
-                        <h3>低重心設計</h3>
-                        <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
-                    </li>
-                    <li>
-                        <h3>車體剛性強化</h3>
-                        <p>車身結構採用超高強度材料，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
-                    </li>
-                    <li>
-                        <h3>四輪獨立懸吊</h3>
-                        <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt>低重心設計</dt>
+                    <dd>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</dd>
+                
+                    <dt>車體剛性強化</dt>
+                    <dd>車身結構採用超高強度材料，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</dd>
+                    
+                    <dt>四輪獨立懸吊</dt>
+                    <dd>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</dd>
+                </dl>
             </div>
             <a href="#" class="video">
                 <div class="pic">
@@ -270,16 +266,13 @@
                     <div class="repeat_txt">因為我們做了這些革新</div>
                     <span class="repeat_border"></span>
                 </div>
-                <ul>
-                    <li>
-                        <h3>主動安全</h3>
-                        <p>以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</p>
-                    </li>
-                    <li>
-                        <h3>被動安全</h3>
-                        <p>堅固的高剛性車體，使用熱沖壓成材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt>主動安全</dt>
+                    <dd>以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</dd>
+
+                    <dt>被動安全</dt>
+                    <dd>堅固的高剛性車體，使用熱沖壓成材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</dd>
+                </dl>
             </div>
             <a href="#" class="video">
                 <div class="pic">
@@ -305,20 +298,16 @@
                     <div class="repeat_txt">因為我們做了這些革新</div>
                     <span class="repeat_border"></span>
                 </div>
-                <ul>
-                    <li>
-                        <h3>駕駛位置最佳化</h3>
-                        <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
-                    </li>
-                    <li>
-                        <h3>駕馭視野佳</h3>
-                        <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</p>
-                    </li>
-                    <li>
-                        <h3>更寧靜的車室</h3>
-                        <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt>駕駛位置最佳化</dt>
+                    <dd>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</dd>
+
+                    <dt>駕馭視野佳</dt>
+                    <dd>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</dd>
+
+                    <dt>更寧靜的車室</dt>
+                    <dd>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</dd>
+                </dl>
             </div>
             <a href="#" class="video">
                 <div class="pic">
@@ -344,16 +333,13 @@
                     <div class="repeat_txt">因為我們做了這些革新</div>
                     <span class="repeat_border"></span>
                 </div>
-                <ul>
-                    <li>
-                        <h3>優異油耗表現</h3>
-                        <p>以Corolla Sport為例，更強勁的高效引擎將熱效率提升40%，達到世界級水準，屢屢突破燃油效率新境界</p>
-                    </li>
-                    <li>
-                        <h3>行李箱空間最適化</h3>
-                        <p>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt>優異油耗表現</dt>
+                    <dd>以Corolla Sport為例，更強勁的高效引擎將熱效率提升40%，達到世界級水準，屢屢突破燃油效率新境界</dd>
+
+                    <dt>行李箱空間最適化</dt>
+                    <dd>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</dd>
+                </dl>
             </div>
             <a href="#" class="video">
                 <div class="pic">
@@ -379,16 +365,13 @@
                     <div class="repeat_txt">因為我們做了這些革新</div>
                     <span class="repeat_border"></span>
                 </div>
-                <ul>
-                    <li>
-                        <h3>設計概念</h3>
-                        <p>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</p>
-                    </li>
-                    <li>
-                        <h3>環保概念</h3>
-                        <p>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt>設計概念</dt>
+                    <dd>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</dd>
+
+                    <dt>環保概念</dt>
+                    <dd>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。</dd>
+                </dl>
             </div>
             <a href="#" class="video">
                 <div class="pic">
