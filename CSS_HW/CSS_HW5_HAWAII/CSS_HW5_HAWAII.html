@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        @font-face {
+            font-family: 'fontname';
+            src: url(./font/static/NotoSansJP-Light.ttf);
+        }
+        @font-face {
+            font-family: 'english_fontname';
+            src: url(./font/Lato-Light.ttf);
+        }
+        /* :root{
+            --pic-width:480px;
+        } */
+        *{
+            font-family: 'fontname';
+        }
+        .card_list{
+            margin: auto;
+        }
+        .main_title h2:nth-child(1){
+            font-weight: bolder;
+            font-family:'english_fontname';
+            font-size: 70px; 
+            line-height: 1;
+            margin: 10px 10px;  
+        }
+        .main_title h2:nth-child(2){
+            line-height: 1.5;
+            font-size: 12px;  
+            font-weight: bold;
+            margin: 10px 10px;   
+        }
+        img{
+            width: 100%;
+        }
+        .main_pic{
+            vertical-align: top;
+            /* width: 500px; */
+            max-width: 100%;
+            /* height: 500px; */
+            height: auto;
+            margin: 10px 0px;  
+            /* box-sizing: border-box; */
+        }
+        .main_visual p{
+            max-width: 100%;
+            width: 100%;
+            line-height: 1.8;
+            font-size: 12px;
+            padding: 10px 10px;
+        }
+        .turtle_pic{
+            vertical-align: top;
+            border-radius:20px;
+            margin: 0 10px;
+            /* width: var(--pic-width); */
+            width: 80%;
+            height: auto;
+            /* box-sizing: border-box; */
+        }
+        .turtle_pic img{
+            border-radius: 5px;
+        }
+        .protect_hawaii h3{
+            max-width: 100%;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            /* width: var(--pic-width); */
+            margin: 10px 10px;
+        }
+        .protect_hawaii :nth-child(3){
+            color: black;
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 10px;
+            max-width: 100%;
+            width: 100%;
+        }
+        .protect_hawaii :nth-child(4){
+            font-size: 12px; 
+            color: #f65936;
+            margin: 10px 10px;
+            max-width: 100%;
+            width: 100%;
+        }
+        .arrow{
+            display: inline-block ;
+            position: relative;
+            margin: 0 8px;
+            width: 12px;
+            height: 12px;
+            vertical-align: top;
+        }
+        .arrow::after{
+            content: '';
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            border: .5px solid #f65936;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @media screen and (min-width:768px) {
+            .main_title{
+
+            }
+            
+        }
+        /*@media screen and (min-width:900px) {
+            .main_title{
+                display: flex;
+            }
+        }*/
+    </style>
+</head>
+<body>
+    <div class="card_list">
+        <div class="main_title">
+            <h2>Re-Imagine<br>Hawai‘i</h2>
+            <h2>ハワイを想うことは、<br>ハワイの未来を創ること。</h2>
+        </div>
+        <div class="main_visual">
+            <div class="main_pic">
+                <img src="./main.jpg">
+            </div>
+            <p> 美しい楽園ハワイは、<br>
+                永遠ではありません。<br>
+                山から海まで、<br>
+                ハワイに生きる美しい自然や文化に<br>
+                「マラマ = 思いやりの心」を持って接すること。<br>
+                レスポンシブル・ツーリズムは、<br>
+                そんな思いやりの心を<br>
+                旅の中で実践していく、<br>
+                新しい観光のカタチです。<br>
+                ハワイが何十年後も、何百年後も、<br>
+                素晴らしい楽園であるよう<br>
+                旅行者のみなさんだから<br>
+                できることがあります。
+            </p>
+        </div>
+        <section class="protect_hawaii">
+            <div class="turtle_pic">
+                <img src="./turtle.jpg">
+            </div>
+            <h3>
+                美しいハワイを未来へとつなぐためにわたしたちができること
+            </h3>
+            <p>
+                ハワイは世界の絶滅危惧種の宝庫と呼ばれるほど、貴重な生物がたくさん生息しています。ウミガメ、イルカ、クジラ、サンゴ礁。これらを守るためにも、知ってもらいたいことやルールがあります。これからは旅行者にも、ハワイの島々の自然や文化を守り、現地住民が大切にする場所を敬い、美しいハワイを未来へつなげていく行動が求められます。<br>
+                「レスポンシブル・ツーリズム」一緒にはじめませんか。
+            </p>
+            <p>マラマハワイとは<span class="arrow"><img src="./arrow.svg" alt=""></span></p>
+        </section>
+    </div>
+
+    <!-- <article class="what_can_we_do">
+        <h3></h3>
+        <p class="about"></p>
+        <section>
+            <div class="pic">   
+            </div>
+            <h4></h4>
+            <p></p>
+            <p></p>
+            <p></p>
+        </section>
+    </article> -->
+</body>
+</html>
