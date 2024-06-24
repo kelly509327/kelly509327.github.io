@@ -86,7 +86,7 @@
             width: 100%;
         }
         /* 烏龜的a */
-        .turtle_txt a{
+        .arrow_txt_btn{
             text-decoration: none;
             font-weight: bolder;
             font-size: 12px; 
@@ -107,7 +107,7 @@
             display: inline-block;
             width: 13px;
             height: 13px;
-            border: .5px solid #f65936;
+            border: .8px solid #f65936;
             border-radius: 50%;
             justify-content: center;
             align-items: center;
@@ -120,7 +120,8 @@
             font-size: 35px;
             font-family:'english_fontname';
             width: 100%;
-            padding: 20px;
+            margin-top: 80px;
+            padding:20px;
             letter-spacing: .5px;
         }
         .about_malama span{
@@ -137,7 +138,21 @@
         }
         .about_malama_card_list{
             display: flex;
+            overflow-x: auto;
+            white-space: nowrap; /* 防止子元素換行 */
+            width: 100%; /* 設置容器的寬度 */
             
+        }
+        .about_malama_card_list .card{
+            flex: 0 0 auto; /* 防止子元素縮放，保持原本的大小 */
+            width: 70%; /* 設置每個子元素的寬度 */
+            height: auto; /* 設置每個子元素的高度 */
+            margin: 10px; /* 設置每個子元素之間的間距 */
+            text-align: center; /* 文字居中 */
+            line-height: 200px; /* 行高設置與高度一致，讓文字垂直居中 */
+        }
+        .about_malama_card_list::-webkit-scrollbar {
+            display: none; /* 隱藏滾動條 */
         }
         .about_malama_card_list .pic img{
             width: 100%;
@@ -145,7 +160,6 @@
             vertical-align: top;
         }
         .about_malama_card_list .pic{
-            
             margin: 5px;
             /* border-radius: 10px; */
         }
@@ -153,7 +167,7 @@
             position: relative;
         }
         .about_malama_card_list .txt{
-            background-image: linear-gradient(to bottom, #0000 0%, #0008 15%, #0008 25%);
+            /* background-image: linear-gradient(to bottom, #0000 0%, #0008 15%, #0008 25%); */
             font-size: 14px;
             color: white;
             display:flex;
@@ -175,78 +189,159 @@
             color: white;
         }
         .banner_card{
+            margin: auto;
             display: grid;
-            grid-template: repeat(3,1fr)/ repeat(2,1fr);
-            gap: 10px;
+            gap: 20px;
         }
-        .banner_card :nth-child(1){
-            grid-column: 1 / span 2; 
+        .banner_card .card.active{
+            grid-column: 1 / span 2;
         }
         .banner_card .card{
             display: flex; 
             flex-direction: column;
+            flex-grow: 1;
         }
         .banner_card .card a{
             text-decoration: none;
             color: black;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
         .banner_card .card h4{
+            font-family: 'fontname';
             font-weight: bolder;
-            font-size: 18px;
+            font-size: 14px;
+            word-spacing:1;
             line-height: 1.2;
             padding: 10px;
+            /* flex-grow: 1; */
         }
         .banner_card .card p{
+            /* flex-grow: 1; */
             padding: 10px;
             font-size: 14px;
             line-height: 1.2;
+            display: block;
         }
         .banner_card time{
+            font-family: 'fontname';
             padding: 10px;
+            font-size: 12px;
+            letter-spacing: .1;
             margin-top: auto;
             display: block;
         }
-        .banner_card .card img{
-            border-radius: 10px;
+        .banner_card .card:not(.active) .pic img{
+            padding: 10px;
+            border-radius: 20px;
             width: 100%;
             height: auto;
         }
-        .banner_card .pic{
+        /* .banner_card .card.active img {
+            border-radius: 0; 
+        } */
+        /* .banner_card .pic{
             padding: 10px;
+        } */
+        .banner_card figure{
+            padding: 10px 10px 0;
+            display: flex;
+            
         }
-        .banner_card span{
-            padding: 10px;
+        
+        .banner_card figcaption{
+            margin: 0 5px;
+            font-size: 12px;
+            line-height: 1.7;
         }
-        .latest p:nth-child(1){
+        .banner_card .card a figure img{
+            display: block;
+            /* justify-content: center; */
+            width: 20px;
+            height: 20px;
+        }
+        .banner p:nth-child(1){
             font-weight: bolder;
             font-size: 16px;
             font-family: 'english_fontname';
             padding: 10px;
         }
-        .latest p:nth-child(1)::before{
+        .banner p:nth-child(1)::before{
             margin: 10px 0;
             width: 100%;
             display: block;
             content: '';
             border-top: 2px solid black;
         }
-        .latest p:nth-child(1)::after{
-            margin: 30px 0 10px 0 ;
-            width: 100%;
+        .banner_card_list .title{
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner_card .banner_txt{
+            display: flex; 
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .border_gray{
+            margin: auto ;
+            width: 96%;
+            padding: 20px;
             display: block;
-            content: '';
-            border-top: 2px solid #ccc;
+            border-bottom: .5px solid #cca;
         }
         .banner_card_list .title h4:nth-of-type(1){
+            display: inline-block;
             padding: 10px 10px 5px 10px;
             font-size: 16px;
             font-weight: bolder;
         }
         .banner_card_list .title p:nth-of-type(1){
+            display: inline-block;
             padding: 0 10px;
             margin-bottom: 20px;
             font-family: 'english_fontname';
             font-size: 14px;
+        }
+        .banner_card_list .title_txt{
+            display: flex;
+            flex-direction: column;
+        }
+        .banner_card_list .title a{
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 12px; 
+            color: #f65936;
+            padding: 5px 10px;
+            margin: 10px;
+        }
+        .arrow{
+            display: inline-block ;
+            position: relative;
+            margin: 0 8px;
+            width: 12px;
+            height: 12px;
+            vertical-align: middle;
+        }
+        .arrow::after{
+            content: '';
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            border: .8px solid #f65936;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden{
+            visibility: hidden;
         }
 
         @media screen and (min-width:768px) {
@@ -266,6 +361,36 @@
                 margin: 0 0 150px 0;
                 padding: 20px 20px 20px 40px;
             }
+            .banner_card{
+                display: grid;
+                grid-template: repeat(2,1fr)/repeat(4,1fr);
+            }
+            .banner_card .card.active{
+                grid-row: 1 / span 2;
+            }
+            .banner_card .card.active .banner_txt{
+                display: grid;
+                grid-template: repeat(2,1fr)/repeat(2,1fr);
+            }
+            .banner_card .card.active .banner_txt h4{
+                grid-row: 1 / span 2;
+            }
+            .banner_card .card .pic img{
+                padding: 10px;
+                border-radius: 20px;
+                width: 100%;
+                height: auto;
+            }
+            .banner_card_list .title_txt{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 1px;
+            }
+            .banner_card_list .title_txt p{
+                margin: 1px;
+
+            }
+            
         }
         @media screen and (min-width:850px) {
             .main_title{
@@ -290,9 +415,7 @@
                 margin: auto;
             }
             .main_title h2:nth-child(1){
-            }
-            .main_title h2:nth-child(2){
-                
+                margin: auto;
             }
             .main_pic{
                 margin-bottom: 0;
@@ -346,4 +469,23 @@
             .main_title h2:nth-child(1){
                 font-size: 120px;
             }
+            .about_malama_card_list{
+                overflow-x: visible;
+            }
+            
+            .about_malama_card_list .card{
+                width: 31.5%;
+                /* width: auto;
+                justify-content: space-between; */
+            }
+            .about_malama_card_list img{
+                /* width: 30%; */
+            } 
+            .about_malama h3{
+                font-size: 80px;
+                font-weight: bold;
+                padding: 10px 50px 50px;
+            }
+            
+
         }

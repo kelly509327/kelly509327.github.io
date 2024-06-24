@@ -4,29 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./reset.css">
     <style>
-        .circle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2px solid #000;
-            text-align: center;
+        .card_list{
+            display: grid;
+            grid-template: repeat(3,1fr)/repeat(2,1fr);
+            gap: 20px;
         }
-
-        .circle-text {
-            display: inline-block;
-            white-space: nowrap;
+        .card.active{
+            grid-column: 1/span 2;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .txt{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        time{
+            margin-top: auto;
+        }
+        img{
+            width: 100%;
+        }
+        .pic{
+            width: auto;
+        }
+        @media screen and (min-width:768px) {
+            .card_list{
+                display: grid;
+                grid-template: repeat(2,1fr)/repeat(4,1fr);
+                gap: 20px;
+            }
+            .card.active{
+                grid-area: 1 / 1 / span 2 / span 2;
+                display: flex;
+                flex-direction: column;
+            }
+            .card.active .txt{
+                display: grid;
+                grid-template: repeat(2,1fr)/repeat(2,1fr);
+                gap: 20px;
+            }
+            .card.active h3{
+                grid-row: 1/span 2;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="circle-container">
-        <div class="circle-text">
-            <span>abcdjdjkajdkjskdjiqjwiq</span>
+    <div class="card_list">
+        <div class="card active">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing eoluptates nihil ab accusamus officiis architecto ratione!</p>
+                <time datetime="">20240629</time>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisione!</p>
+                <time datetime="">20240629</time>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipiAtque officia nesciunt culpa fugiat ratione, quae, ipsum excepturi accusamus, voluptatibd. Aspernatur eum, voluptates nihil ab accusamus officiis architecto ratione!</p>
+                <time datetime="">20240629</time>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>title</h3>
+                <p>ratione!</p>
+                <time datetime="">20240629</time>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque officia nesciunt culpa fugiat ratione, quae, ipsum excepturi accusamus, voluptatibus aperiam ad. Aspernatur eum, voluptates nihil ab accusamus officiis architecto ratione!</p>
+                <time datetime="">20240629</time>
+            </div>
         </div>
     </div>
 </body>
