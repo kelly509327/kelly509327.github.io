@@ -5,220 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css">
-    <style>
-        @font-face {
-            font-family: 'fontname';
-            src: url(./font/static/NotoSansJP-Light.ttf);
-        }
-        @font-face {
-            font-family: 'english_fontname';
-            src: url(./font/Lato-Light.ttf);
-        }
-        *{
-            box-sizing: border-box;
-            font-family: 'fontname';
-            letter-spacing: 1px;
-        }
-        .card_list{
-            margin: auto;
-        }
-        img{
-            width: 100%;
-        }
-        .main_pic{
-            vertical-align: top;
-            max-width: 100%;
-            height: auto;
-            margin: 10px 0px;  
-        }
-        .turtle_pic{
-            vertical-align: top;
-            border-radius:20px;
-            height: auto;
-            margin: 0 15px 0 15px;
-        }
-        .turtle_pic img{
-            width: 100%;
-            border-radius: 10px;
-        }
-        .main_title h2:nth-child(1){
-            font-weight: bolder;
-            font-family:'english_fontname';
-            font-size: 70px; 
-            line-height: 1;
-            margin: 10px 0;  
-            padding: 20px;
-        }
-        .main_title h2:nth-child(2){
-            line-height: 1.5;
-            font-size: 12px;  
-            font-weight: bold;
-            margin: 10px 0px;   
-            padding: 20px;
-        }
-        .main_visual p{
-            max-width: 100%;
-            width: 100%;
-            line-height: 1.8;
-            font-size: 16px;
-            padding: 20px;
-            margin: 0 0 10px 0;
-        }
-        .main_txt span.p_br{
-            display: block;
-            margin-bottom: 0px;
-            padding: 0px;
-        }
-        .turtle_txt span.h3_br{
-            display: inline;
-        }
-        .protect_hawaii{
-            /* background-color: #f9f6f5; */
-        }
-         /* 烏龜的h3 */
-        .turtle_txt h3{
-            max-width: 100%;
-            width: 100%;
-            padding: 20px;
-            font-size: 20px;
-            line-height: 1.5;
-            font-weight: bold;
-        }
-        /* 烏龜的p */
-        .turtle_txt p{
-            font-size: 14px;
-            line-height: 1.8;
-            max-width: 100%;
-            padding: 20px;
-            width: 100%;
-        }
-        /* 烏龜的a */
-        .turtle_txt a{
-            text-decoration: none;
-            font-weight: bolder;
-            font-size: 12px; 
-            color: #f65936;
-            padding: 5px 10px;
-            margin: 10px;
-        }
-        .arrow{
-            display: inline-block ;
-            position: relative;
-            margin: 0 8px;
-            width: 12px;
-            height: 12px;
-            vertical-align: middle;
-        }
-        .arrow::after{
-            content: '';
-            display: inline-block;
-            width: 13px;
-            height: 13px;
-            border: .5px solid #f65936;
-            border-radius: 50%;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        @media screen and (min-width:768px) {
-            .main_title{
-                display: flex;
-                flex-direction: column;
-                position: relative;
-            }
-            .main_title h2:nth-child(1){
-                font-size: 100px;
-                position: absolute;
-                top: 50px;
-                padding: 20px 20px 20px 40px;
-            }
-            .main_title h2:nth-child(2){
-                font-size: 20px;  
-                margin: 0 0 150px 0;
-                padding: 20px 20px 20px 40px;
-            }
-        }
-        @media screen and (min-width:850px) {
-            .main_title{
-                display: flex;
-                flex-direction: row-reverse;
-                position: relative;
-                top: 60px;
-            }
-            .main_title h2:nth-child(1) {
-                padding: 20px 5px 20px 0px;
-                position: static;
-            }
-            .main_title h2:nth-child(2) {
-                font-size: 20px;
-                margin: auto;
-                padding: 20px 20px 20px 40px;
-                
-            }
-        }
-        @media screen and (min-width:900px) {
-            .main_title{
-                margin: auto;
-            }
-            .main_title h2:nth-child(1){
-            }
-            .main_title h2:nth-child(2){
-            }
-            .main_pic{
-                margin-bottom: 0;
-            }
-            .main_visual{
-                display: flex;
-            }
-            .main_txt{
-                width: 500px;
-                /* position: relative;
-                top: 120px; */
-                padding-top: 15%;
-            }
-            .main_visual p{
-                writing-mode: vertical-rl;
-                align-content: center;
-            }
-            .main_txt span.p_br{
-                display: inline;
-            }
-            .turtle_txt span.h3_br{
-                display: block;
-            }
-            .turtle{
-                display: flex;
-                margin: auto;
-                width: 90%;
-            }
-            .turtle_pic{
-                position: relative;
-                width: 200%;
-                transform: translateY(-30%);
-            }
-            .turtle_txt h3{
-                padding: 20px 0 20px 30px;
-            }
-            /* 烏龜的p */
-            .turtle_txt p{
-                padding: 20px 0 20px 30px;
-            }
-            /* 烏龜的a */
-            .turtle_txt a{
-                padding: 5px 0 5px 30px;
-                margin:0px;
-            }
-        }
-        @media screen and (min-width:1200px) {
-            .main_title h2:nth-child(1){
-                font-size: 120px;
-            }
-        }
-        
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="card_list">
@@ -231,13 +18,13 @@
                 <img src="./main.jpg">
             </div>
             <div class="main_txt">
-                <p> 美しい楽園ハワイは、<span class="p_br">永遠ではありません。</span><br>
-                    山から海まで、<span class="p_br">ハワイに生きる美しい自然や文化に</span><br>
+                <p> <span class="p_br">美しい楽園ハワイは、</span>永遠ではありません。<br>
+                    <span class="p_br">山から海まで、</span>ハワイに生きる美しい自然や文化に<br>
                     「マラマ = 思いやりの心」を持って接すること。<br>
-                    レスポンシブル・ツーリズムは、<span class="p_br">そんな思いやりの心を</span><br>
-                    旅の中で実践していく、<span class="p_br">新しい観光のカタチです。</span><br>
-                    ハワイが何十年後も、何百年後も、<span class="p_br">素晴らしい楽園であるよう</span><br>
-                    旅行者のみなさんだから<span class="p_br">できることがあります。</span>
+                    <span class="p_br">レスポンシブル・ツーリズムは、</span>そんな思いやりの心を<br>
+                    <span class="p_br">旅の中で実践していく、</span>新しい観光のカタチです。<br>
+                    <span class="p_br">ハワイが何十年後も、何百年後も、</span>素晴らしい楽園であるよう</span><br>
+                    <span class="p_br">旅行者のみなさんだから</span>できることがあります。
                 </p>
             </div>
         </div>
@@ -257,6 +44,127 @@
                     <a href="#">マラマハワイとは<span class="arrow"><img src="./arrow.svg" alt=""></span></a>
                 </div>
             </div>
+            <div class="about_malama">
+                <h3>
+                    What We Can Do to <br>
+                    <span class="keep_orange">Keep Hawai‘i Beautiful</span><br>
+                    for the Future.
+                </h3>
+                <p>ABOUT MĀLAMA HAWAI‘I</p>
+                <div class="about_malama_card_list">
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./mountain.png" alt="">
+                        </div>
+                        <div class="txt">
+                            <h4>責任ある観光“レスポンシブ<br>
+                                ル・ツーリズム”とは</h4>
+                            <a href="#">詳しく見る</a>
+                            <p>
+                                観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。
+                            </p>
+                            <p>WHAT IS "Responsible Tourism"</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./mountain.png" alt="">
+                        </div>
+                        <div class="txt">
+                            <h4>責任ある観光“レスポンシブ<br>
+                                ル・ツーリズム”とは</h4>
+                            <a href="#">詳しく見る</a>
+                            <p>
+                                観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。
+                            </p>
+                            <p>WHAT IS "Responsible Tourism"</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./mountain.png" alt="">
+                        </div>
+                        <div class="txt">
+                            <h4>責任ある観光“レスポンシブ<br>
+                                ル・ツーリズム”とは</h4>
+                            <a href="#">詳しく見る</a>
+                            <p>
+                                観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。
+                            </p>
+                            <p>WHAT IS "Responsible Tourism"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="latest">
+            <p>LATEST</p>
+            <div class="banner_card_list">
+                <div class="title">
+                    <h4>旅行者</h4>
+                    <p>what traveler can do</p>
+                    <a href="#"></a>
+                </div>
+                <div class="banner_card"> 
+                    <div class="card">
+                        <a href="#">
+                            <span>イベント</span>
+                            <img src="./Allhawaiiコラム用-3.png" alt="">
+                            <h4>
+                                【4月22日はアースデイ】ハワイでの環境にやさしいイベントを紹介！
+                            </h4>
+                            <p>
+                                毎年4月22日はアースデイ(Earth Day)！地球や環境のことを考え、一人一人が何ができるかを考えたり行動を起こすために生まれた1日。1970年にユネスコに
+                            </p>
+                            <time datetime="2024.03.21">2024.03.21<time>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="#">
+                            <span>イベント</span>
+                            <div class="pic">
+                                <img src="./Allhawaiiコラム用-3.png" alt="">
+                            </div>
+                            <h4>
+                                プリンス・クヒオ・デイ・セレブレーション（Prince Kuhio Day Celebration）
+                            </h4>
+                            <time datetime="2024.03.21">2024.03.21<time>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="#">
+                            <span>海</span>
+                            <div class="pic"><img src="./Allhawaiiコラム用-3.png" alt=""></div>
+                            <h4>
+                                11月はサンゴ白化啓発月間　〜日常でできること〜
+                            </h4>
+                            <time datetime="2023.11.19">2023.11.19<time>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="#">
+                            <span>その他</span>
+                            <div class="pic"><img src="./Allhawaiiコラム用-3.png" alt=""></div>
+                            <h4>
+                                マウイ島の山火事救援金、日本円で受付開始
+                            </h4>
+                            <time datetime="2023.08.18">2023.08.18<time>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="#">
+                            <span>イベント</span>
+                            <div class="pic"><img src="./Allhawaiiコラム用-3.png" alt=""></div>
+                            <h4>
+                                2023年7月後半～9月にハワイで開催されるカルチャーイベント
+                            </h4>
+                            <time datetime="2023.07.20">2023.07.20<time>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
         </section>
     </div>
 </body>
