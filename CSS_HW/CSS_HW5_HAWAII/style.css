@@ -37,6 +37,7 @@
         .main_title h2:nth-child(1){
             font-weight: bolder;
             font-family:'english_fontname';
+            white-space: nowrap;
             font-size: 70px; 
             line-height: 1;
             margin: 10px 0;  
