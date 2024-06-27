@@ -48,12 +48,6 @@ img {
     /* text-indent: -20px; */
 }
 .txt ul li::before {
-    /* content: '•';
-    color: #0061ff;
-    font-size: 30px;
-    vertical-align: middle;
-    padding-right: 10px;
-    display: inline-block; */
     content: '';
     display: inline-block;
     width: 1em;
