@@ -42,12 +42,28 @@ img {
     line-height: 30px;
     padding-bottom: 50px;
 }
+.txt ul li {
+    padding-left: 1em;
+    text-indent: -1em;
+    /* text-indent: -20px; */
+}
 .txt ul li::before {
-    content: '•';
+    /* content: '•';
     color: #0061ff;
     font-size: 30px;
     vertical-align: middle;
     padding-right: 10px;
+    display: inline-block; */
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #0061ff;
+    position: relative;
+    top: 2px;
+    border-radius: 50%;
+    scale: .5;
+    
 }
 .txt a {
     text-decoration: none;
@@ -69,7 +85,11 @@ img {
     background-size: cover;
     position: absolute;
     bottom: .1px;
-    right:-25px;
+    right:-20px;
+}
+.txt a:hover::after{
+    transition:0.3s ease; 
+    transform: translateX(5px);
 }
 .card {
     padding: 50px 0;
@@ -111,6 +131,7 @@ img {
     }
     .pic {
         width: 50%;
+        margin: auto;
     }
     .txt {
         width: 50%;
@@ -118,9 +139,11 @@ img {
     .txt ul {
         display: flex;
         flex-wrap: wrap;
+        /* justify-content: space-between;  */
     }
     .txt ul li{
-        width: 50%;
+        width: calc(50% - 1em) ;
+        /* white-space: nowrap; */
     }
     .items_txt p{
         padding: 0 30px;
