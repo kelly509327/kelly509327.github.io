@@ -103,7 +103,7 @@
         <h1 class="col-12">終極密碼</h1>
         <button class="start">開始遊戲</button>
         <input type="number" class="guessNumber hidden" min="1" max="100" required>
-        <p class="hidden">請輸入1到100的數字</p>
+        <p class="hidden">請輸入1到100的整數</p>
         <div class="button_items hidden">
             <button class="inputNumber btn">送出答案</button>
             <button class="checkAnswer btn">看結果</button>
@@ -122,7 +122,7 @@
             answer = random(min, max);
             console.log(answer);
             document.querySelector('.guessNumber').value = '';
-            changeP.innerHTML = ('請輸入一個1～100之間的數字');
+            changeP.innerHTML = ('請輸入1～100之間的整數');
             document.querySelector('.start').style.display = 'none';
             document.querySelector('.guessNumber').style.display = 'block';
             document.querySelector('p').style.display = 'block';
@@ -155,22 +155,26 @@
 
         //更新提示字體
         function updateHint() {
-            changeP.innerHTML = (`接近了！請輸入${min}～${max}之間的數字`)
+            changeP.innerHTML = (`接近了！請輸入${min}～${max}之間的整數`)
         }
 
         //判斷數字
         function checkGuessAnswer() {
             let guess = document.querySelector('.guessNumber').value;
             if (guess === '') {
-                changeP.innerHTML = (`你沒有填入數字！請輸入${min}～${max}之間的數字`)
+                changeP.innerHTML = (`你沒有填入數字！請輸入${min}～${max}之間的整數`)
+            }
+            else if (guess.includes('.')) {
+                changeP.innerHTML = (`請輸入整數！請輸入${min}～${max}之間的整數`);
+
             }
             else {
                 let guessAnswer = parseInt(guess);
                 if (guessAnswer < min) {
-                    changeP.innerHTML = (`數字太小啦！請輸入${min}～${max}之間的數字`);
+                    changeP.innerHTML = (`數字太小啦！請輸入${min}～${max}之間的整數`);
                 }
                 else if (guessAnswer > max) {
-                    changeP.innerHTML = (`數字太大啦！請輸入${min}～${max}之間的數字`);
+                    changeP.innerHTML = (`數字太大啦！請輸入${min}～${max}之間的整數`);
                 }
                 else if (guessAnswer > answer) {
                     max = guessAnswer - 1;

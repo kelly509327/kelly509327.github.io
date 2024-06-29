@@ -17,28 +17,27 @@
             font-family: 'box_font';
             background-color: black;
             letter-spacing: 5px;
-            color: white;
+            color: #00f701;
         }
 
         button {
             /* all: unset; */
-            border: 2px solid white;
+            border: 2px solid #00f701;
             border-radius: 10px;
         }
 
         button:disabled,
-        .col-4:disabled,
         .guessNumber:disabled {
             opacity: .2;
         }
 
         button:disabled:hover {
             background-color: black;
-            color: white
+            color: #00f701
         }
 
         button:hover {
-            background-color: white;
+            background-color: #00f701;
             color: black;
         }
 
@@ -46,15 +45,15 @@
             font-size: 50px;
             text-align: center;
             font-family: 'box_font';
-            margin: 50px 0 30px;
+            margin: 150px 0 50px;
         }
 
         .start {
             width: 300px;
             height: 80px;
             font-size: 40px;
-            margin: 20px 0 0 0;
             font-family: 'box_font';
+
         }
 
         .button_items {
@@ -62,7 +61,6 @@
             justify-content: space-evenly;
             /* font-size: 50px; */
             font-family: 'box_font';
-            padding-bottom: 20px;
         }
 
         .guessNumber {
@@ -74,14 +72,18 @@
             text-align: center;
             border: 2px solid white;
             border-radius: 10px;
-            font-size: 40px;
+            font-size: 30px;
             font-family: 'box_font';
         }
 
         p {
             font-size: 30px;
-            padding: 40px 0;
+            padding: 50px 0;
             font-family: 'box_font';
+        }
+
+        .hidden {
+            display: none;
         }
 
         .container input::-webkit-inner-spin-button {
@@ -89,80 +91,28 @@
         }
 
         .btn {
-            font-size: 18px;
-            width: 160px;
-            height: 40px;
-        }
-
-        .keyBoard {
-            /* display: block; */
-            text-align: center;
-            color: aliceblue;
-            width: 200px;
             font-size: 30px;
-            font-family: 'box_font';
-            margin: auto;
-            display: grid;
-            gap: 5px;
-            grid-template: repeat(4, 1fr) / repeat(3, 1fr);
-        }
+            width: 180px;
+            height: 60px;
+            color: white;
+            border: 2px solid white;
+            opacity: .8;
 
-        .keyBoard button {
-            /* align-items: center;
-            align-content: center;
-            justify-items: center; */
-            width: 50px;
-            height: 50px;
-            font-size: 30px;
-        }
-
-        .keyBoard .delete {
-            grid-column: span 2;
-            /* grid-row: 4; */
-            width: 120px
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .col-4 {
-            display: inline-block;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="col-12">終極密碼</h1>
+        <h1 class="col-12">終極密碼_</h1>
         <button class="start">開始遊戲</button>
         <input type="number" class="guessNumber hidden" min="1" max="100" required>
-        <p class="hidden">請輸入1到100的數字</p>
+        <p class="hidden">請輸入1到100的整數_</p>
         <div class="button_items hidden">
             <button class="checkAnswer btn">看結果</button>
             <button class="inputNumber btn">送出答案</button>
             <button class="restart btn">重新開始</button>
         </div>
-        <div class="keyBoard hidden">
-
-            <button class="col-4 hidden">1</button>
-            <button class="col-4 hidden">2</button>
-            <button class="col-4 hidden">3</button>
-
-            <button class="col-4 hidden">4</button>
-            <button class="col-4 hidden">5</button>
-            <button class="col-4 hidden">6</button>
-
-            <button class="col-4 hidden">7</button>
-            <button class="col-4 hidden">8</button>
-            <button class="col-4 hidden">9</button>
-
-            <button class="col-4 hidden">0</button>
-            <button class="col-4 delete hidden">刪除</button>
-            <!-- <button class="col-4 delete">刪除</button> -->
-        </div>
-    </div>
-
     </div>
     <script>
         let answer;
@@ -175,32 +125,16 @@
         function startGame() {
             answer = random(min, max);
             console.log(answer);
+            document.querySelector('h1').style.color = 'white';
             document.querySelector('.guessNumber').value = '';
-            changeP.innerHTML = ('請輸入一個1～100之間的數字');
-            // document.querySelector('.container').classList.remove('hidden');
-
+            changeP.innerHTML = ('請輸入1～100之間的整數');
             document.querySelector('.start').style.display = 'none';
-            document.querySelector('.guessNumber').style.display = 'inline-block';
-            document.querySelector('.inputNumber').style.display = 'inline-block';
-            document.querySelector('.checkAnswer').style.display = 'inline-block';
-            document.querySelector('.restart').style.display = 'inline-block';
+            document.querySelector('.guessNumber').style.display = 'block';
             document.querySelector('p').style.display = 'block';
             document.querySelector('.button_items').style.display = 'inline-block';
-            document.querySelectorAll('.col-4').forEach(function (elements) {
-                elements.classList.remove('hidden');
-                elements.style.display = 'inline-block';
-            })
-            document.querySelector('.keyBoard').classList.remove('hidden');
-
-            //開啟禁用按鈕
             document.querySelector('.guessNumber').disabled = false;
             document.querySelector('.inputNumber').disabled = false;
             document.querySelector('.checkAnswer').disabled = false;
-            document.querySelectorAll('.col-4').forEach(function (elementsDis) {
-                elementsDis.disabled = false;
-            })
-
-
         }
 
         //隨機生成1-100的數字
@@ -218,10 +152,6 @@
             document.querySelector('.guessNumber').disabled = true;
             document.querySelector('.inputNumber').disabled = true;
             document.querySelector('.checkAnswer').disabled = true;
-            document.querySelectorAll('.col-4').forEach(function (elements) {
-                elements.disabled = true;
-            });
-
         }
 
         //按下送出答案按鈕
@@ -230,26 +160,26 @@
 
         //更新提示字體
         function updateHint() {
-            changeP.innerHTML = (`接近了！請輸入${min}～${max}之間的整數`)
+            changeP.innerHTML = (`接近了！介於${min}～${max}之間`)
         }
 
         //判斷數字
         function checkGuessAnswer() {
             let guess = document.querySelector('.guessNumber').value;
             if (guess === '') {
-                changeP.innerHTML = (`你沒有輸入數字！請輸入${min}～${max}之間的整數`)
+                changeP.innerHTML = (`你沒有填入數字！請輸入${min}～${max}之間的整數`)
             }
             else if (guess.includes('.')) {
-                changeP.innerHTML = (`請輸入整數！請輸入${min}～${max}之間的整數`);
+                changeP.innerHTML = (`請輸入${min}～${max}之間的整數數字！`);
+
             }
             else {
-                // let guessAnswerFloat = parseFloat(guess);
                 let guessAnswer = parseInt(guess);
                 if (guessAnswer < min) {
-                    changeP.innerHTML = (`數字太小啦！請輸入${min}～${max}之間的整數`);
+                    changeP.innerHTML = (`數字太小啦！介於${min}～${max}之間`);
                 }
                 else if (guessAnswer > max) {
-                    changeP.innerHTML = (`數字太大啦！請輸入${min}～${max}之間的整數`);
+                    changeP.innerHTML = (`數字太大啦！介於${min}～${max}之間`);
                 }
                 else if (guessAnswer > answer) {
                     max = guessAnswer - 1;
@@ -264,24 +194,21 @@
                     disableBtn();
                 }
             }
+
             document.querySelector('.guessNumber').value = ''; // 清空輸入框
         }
-
-
 
         //按下重新開始按鈕
         document.querySelector('.restart').addEventListener('click', function () {
             document.querySelector('.start').style.display = 'inline-block';
             document.querySelector('.guessNumber').style.display = 'none';
             document.querySelector('p').style.display = 'none';
-            document.querySelector('.checkAnswer').style.display = 'none';
-            document.querySelector('.inputNumber').style.display = 'none';
-            document.querySelector('.restart').style.display = 'none';
-            document.querySelector('.keyBoard').classList.add('hidden');
-            document.querySelectorAll('.col-4').forEach(function (elements) { elements.style.display = 'none' });
+            document.querySelector('.button_items.hidden').style.display = 'none';
+            document.querySelector('h1').style.color = '#00f701';
+
         });
 
-        //可以用enter鍵送出答案
+        //在輸入框可以用enter鍵送出答案
         let inputEnter = document.querySelector('.guessNumber');
         let enterBtn = document.querySelector('.inputNumber');
         inputEnter.addEventListener('keypress', function (even) {
@@ -289,18 +216,6 @@
                 enterBtn.click();
             }
         });
-
-        //加上虛擬數字按鈕
-        document.addEventListener('DOMContentLoaded', function () {
-            let AllKey = document.querySelectorAll('.col-4');
-            AllKey.forEach(function (items) {
-                items.addEventListener('click', function () {
-                    inputEnter.value += items.innerHTML;
-                })
-            })
-
-        });
-
     </script>
 </body>
 
