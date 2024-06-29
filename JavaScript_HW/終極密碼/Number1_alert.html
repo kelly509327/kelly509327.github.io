@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./共用資料/grid_system.css">
+    <link rel="stylesheet" href="./共用資料/reset.css">
+    <style>
+        *{
+            background-color: black;
+            color: white;
+            font-family: 'box_chinese_font';
+        }
+        @font-face {
+            font-family: 'box_font';
+            src: url(./文字/Tiny5-Regular.ttf);
+        }
+        @font-face {
+            font-family: 'box_chinese_font';
+            src: url(./文字/Cubic_11_1.300_R.ttf);
+        }
+        .container h1{
+            font-size: 100px;
+            text-align: center;
+            padding: 100px 0;
+            font-family: 'box_chinese_font';
+        }
+        .container input{
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: auto;
+            padding: 20px 0;
+            font-size: 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .container input::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+        }
+        .button_items{
+            padding: 20px 0;
+            text-align: center;
+        }
+        button{
+            border-radius: 10px;   
+            font-size: 50px;
+            padding: 20px;
+        }
+        p{
+            font-family: 'box_chinese_font';
+            font-size: 50px;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>終極密碼</h1>
+        <input type="number" class="guessNumber" min="1" max="100" required>
+        <div class="button_items">
+            <button class="start">開始遊戲</button>
+            <p>
+                請輸入一個1到100之間的數字
+            </p>
+            <button class="inputNumber">送出答案</button>
+            <button class="checkAnswer">看結果</button>
+            <button class="restart">重新開始</button>
+        </div>
+    </div>
+    
+    <script>
+        let answer;
+        let min = 1;
+        let max = 100;
+
+        document.querySelector('.start')
+            .addEventListener('click', function () {
+                answer = random(min, max);
+                console.log(answer);
+            })
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        document.querySelector(".checkAnswer")
+            .addEventListener('click', function () {
+                alert(`答案是${answer}`);
+            })
+
+        document.querySelector('.inputNumber').addEventListener('click', checkGuessAnswer);
+
+        function checkGuessAnswer() {
+        
+            let guess = document.querySelector('.guessNumber')
+            let guessAnswer = parseInt(guess.value);
+            if (guessAnswer < min || guessAnswer > max) {
+                alert(`超出範圍！請輸入${min}～${max}之間的數字`);
+            }
+            else if (guessAnswer > answer) {
+                max = guessAnswer - 1;
+                alert(`答案錯誤！請輸入${min}～${max}之間的數字`);
+            }
+            else if (guessAnswer < answer) {
+                min = guessAnswer + 1;
+                alert(`答案錯誤！請輸入${min}～${max}之間的數字`);
+            }
+            else {
+                alert(`恭喜你答對了！答案是${answer}`)
+                restart();
+            }
+            guess.value = '';
+        }
+        document.querySelector('.restart').addEventListener('click', restart);
+
+        function restart() {
+            min = 1;
+            max = 100;
+            answer = undefined;
+            document.querySelector('.guessNumber').value = '';
+        }
+    </script>
+</body>
+
+</html>

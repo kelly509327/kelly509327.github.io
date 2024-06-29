@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./共用資料/grid_system.css">
+    <link rel="stylesheet" href="./共用資料/reset.css">
+    <style>
+        * {
+            background-color: black;
+            color: white;
+            font-family: 'box_chinese_font';
+        }
+
+        @font-face {
+            font-family: 'box_font';
+            src: url(./文字/Tiny5-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'box_chinese_font';
+            src: url(./文字/Cubic_11_1.300_R.ttf);
+        }
+
+        [disabled]{
+            opacity: .1;
+        }
+        .container h1 {
+            font-size: 100px;
+            text-align: center;
+            padding: 100px 0;
+            font-family: 'box_chinese_font';
+        }
+
+        .container input {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: auto;
+            padding: 20px 0;
+            font-size: 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .container input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        .button_items {
+            padding: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        button.start {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        button {
+            border-radius: 10px;
+            font-size: 50px;
+            padding: 20px;
+        }
+        p {
+            font-family: 'box_chinese_font';
+            font-size: 50px;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .container input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>終極密碼</h1>
+        <button class="start">開始遊戲</button>
+        <input type="number" class="guessNumber hidden" min="1" max="100" required>
+        <p class="hidden">請輸入一個1到100之間的數字</p>
+        <div class="button_items hidden">
+            <button class="inputNumber">送出答案</button>
+            <button class="checkAnswer">看結果</button>
+            <button class="restart">重新開始</button>
+        </div>
+    </div>
+
+    <script>
+        let answer;
+        let min = 1;
+        let max = 100;
+        let changeP = document.querySelector('p');
+
+
+        document.querySelector('.start').addEventListener('click', startGame);
+        function startGame() {
+            answer = random(min, max);
+            console.log(answer);
+            document.querySelector('.guessNumber').value = '';
+            changeP.innerHTML =('請輸入一個1到100之間的數字');
+            document.querySelector('.start').style.display = 'none';
+            document.querySelector('.guessNumber').style.display = 'inline-block';
+            document.querySelector('p').style.display = 'inline-block';
+            document.querySelector('.button_items').style.display = 'inline-block';
+            document.querySelector('.guessNumber').disabled = false;
+            document.querySelector('.inputNumber').disabled = false;
+            document.querySelector('.checkAnswer').disabled = false;
+        }
+        
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        document.querySelector(".checkAnswer").addEventListener('click', function () {
+            changeP.innerHTML =(`答案是${answer}`);
+            disableBtn();
+        })
+
+        function disableBtn(){
+            document.querySelector('.guessNumber').disabled = true;
+            document.querySelector('.inputNumber').disabled = true;
+            document.querySelector('.checkAnswer').disabled = true;
+        }
+        
+        document.querySelector('.inputNumber').addEventListener('click', checkGuessAnswer);
+
+
+        function updateHint() {
+            changeP.innerHTML = (`答案錯誤！請輸入${min}～${max}之間的數字`)
+        }
+
+        function checkGuessAnswer() {
+            let guess = document.querySelector('.guessNumber').value;
+            if (guess === '') {
+                changeP.innerHTML = (`你沒有填入數字！請輸入${min}～${max}之間的數字`)
+            }
+            else {
+                let guessAnswer = parseInt(guess);
+                if (guessAnswer < min || guessAnswer > max) {
+                    changeP.innerHTML = (`超出範圍！請輸入${min}～${max}之間的數字`);
+                }
+                else if (guessAnswer > answer) {
+                    max = guessAnswer - 1;
+                    updateHint();
+                }
+                else if (guessAnswer < answer) {
+                    min = guessAnswer + 1;
+                    updateHint();
+                }
+                else {
+                    changeP.innerHTML = (`恭喜你答對了！答案是${answer}`)
+                    disableBtn();
+                }
+            }
+
+            document.querySelector('.guessNumber').value = ''; // 清空輸入框
+        }
+
+        document.querySelector('.restart').addEventListener('click',function(){
+            document.querySelector('.start').style.display = 'inline-block';
+            document.querySelector('.guessNumber').style.display = 'none';
+            document.querySelector('p').style.display = 'none';
+            document.querySelector('.button_items.hidden').style.display = 'none';
+        });
+
+    </script>
+</body>
+
+</html>
