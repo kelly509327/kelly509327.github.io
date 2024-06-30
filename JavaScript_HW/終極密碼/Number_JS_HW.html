@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>終極密碼</title>
     <link rel="stylesheet" href="./共用資料/reset.css">
     <link rel="stylesheet" href="./共用資料/grid_system.css">
     <style>
@@ -114,20 +114,22 @@
         <input type="number" class="guessNumber hidden" min="1" max="100" required>
         <p class="hidden">請輸入1到100的整數_</p>
         <div class="button_items hidden">
-            <button class="checkAnswer btn">看結果</button>
-            <button class="inputNumber btn">送出答案</button>
+            <button class="checkAnswer btn">查看答案</button>
+            <button class="inputNumber btn">送出數字</button>
             <button class="restart btn">重新開始</button>
         </div>
     </div>
     <script>
         let answer;
-        let min = 1;
-        let max = 100;
+        let min;
+        let max;
         let changeP = document.querySelector('p');
 
         //遊戲開始
         document.querySelector('.start').addEventListener('click', startGame);
         function startGame() {
+            min = 1;
+            max = 100;
             answer = random(min, max);
             console.log(answer);
             document.querySelector('h1').style.color = 'white';
@@ -142,13 +144,13 @@
             document.querySelector('.checkAnswer').disabled = false;
         }
 
-        //隨機生成1-100的數字
+        //隨機
         function random(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
-        //按下看結果按鈕
+        //按下看結果
         document.querySelector(".checkAnswer").addEventListener('click', function () {
-            changeP.innerHTML = (`答案是${answer}`);
+            changeP.innerHTML = (`o(ಥ﹏ಥ)o　答案是${answer}！`);
             disableBtn();
         })
 
@@ -159,7 +161,7 @@
             document.querySelector('.checkAnswer').disabled = true;
         }
 
-        //按下送出答案按鈕
+        //按下送出答案
         document.querySelector('.inputNumber').addEventListener('click', checkGuessAnswer);
 
 
@@ -203,7 +205,7 @@
             document.querySelector('.guessNumber').value = ''; // 清空輸入框
         }
 
-        //按下重新開始按鈕
+        //按下重新開始
         document.querySelector('.restart').addEventListener('click', function () {
             answer = random(min, max);
             document.querySelector('.start').style.display = 'inline-block';
@@ -211,10 +213,11 @@
             document.querySelector('p').style.display = 'none';
             document.querySelector('.button_items.hidden').style.display = 'none';
             document.querySelector('h1').style.color = '#00f701';
+            changeP.innerHTML = '請輸入1～100之間的整數';
 
         });
 
-        //在輸入框可以用enter鍵送出答案
+        //enter鍵
         let inputEnter = document.querySelector('.guessNumber');
         let enterBtn = document.querySelector('.inputNumber');
         inputEnter.addEventListener('keypress', function (even) {
