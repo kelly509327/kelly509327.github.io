@@ -163,19 +163,13 @@ img {
     overflow-x: auto;
     /* white-space: nowrap; 防止子元素換行 */
     width: 100%;
-    /* 設置容器的寬度 */
-
 }
 
 .about_malama_card_list .card {
     flex: 0 0 auto;
-    /* 防止子元素縮放，保持原本的大小 */
     width: 70%;
-    /* 設置每個子元素的寬度 */
     height: auto;
-    /* 設置每個子元素的高度 */
     margin: 10px;
-    /* 設置每個子元素之間的間距 */
     position: relative;
 }
 
@@ -203,7 +197,7 @@ img {
     left: 0;
     bottom: 0;
     top: 0;
-    padding: 30px;
+    padding: 10px 15px;
     border-radius: 10px;
     line-height: 2;
     letter-spacing: 1;
@@ -213,15 +207,13 @@ img {
 
 .about_malama_card_list .txt:hover {
     background-color: rgba(0, 0, 0, 0.752);
-    transition: background-color .2s ease;
+    transition: background-color .4s ease;
 }
 
 .about_malama_card_list .txt h4 {
-    font-size: 27px;
     font-weight: bolder;
     color: white;
     opacity: 1;
-    line-height: 40px;
     padding: 10px 0;
     letter-spacing: -.01em;
 }
@@ -238,7 +230,21 @@ img {
     width: 115px;
     padding: 7px 14px;
 }
+.about_malama_card_list .bottom_txt {
+    margin-top: auto;
+    line-height: 1.8;
+}
+.about_malama_card_list .bottom_txt p {
+    opacity: 0;
+}
 
+.about_malama_card_list .bottom_txt span{
+    color: white;
+    font-family: 'english_fontname';
+    font-size: 10px;
+    letter-spacing: -.001em;
+    opacity: .8;
+}
 .arrow_grey_out {
     display: inline-block;
     position: relative;
@@ -247,7 +253,6 @@ img {
     height: 20px;
     vertical-align: top;
     transform: translateY(3px);
-
 }
 
 .arrow_grey_out::after {
@@ -263,6 +268,20 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.about_malama_card_list .txt:hover > a {
+    color: black;
+    background-color: white;
+}
+.about_malama_card_list .txt:hover > .arrow_grey_out{
+    color: white;
+}
+.about_malama_card_list .txt:hover > .arrow_grey_out::after{
+    background-color: #f65936;
+}
+.about_malama_card_list .txt:hover > .bottom_txt p {
+    opacity: 1;
+    transition: .4s ease;
 }
 
 .banner_card {
@@ -516,6 +535,10 @@ img {
     .banner_card .card.active h4 {
         font-size: 22px;
         line-height: 1.5;
+    }
+    .about_malama_card_list .txt h4 {
+        font-size: 27px; 
+        line-height: 40px; 
     }
 }
 
