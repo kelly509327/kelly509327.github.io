@@ -1,3 +1,5 @@
+
+
 const startBtn = document.querySelector("#start_btn");
 const showAnsBtn = document.querySelector("#show_answer_btn");
 const restartBtn = document.querySelector("#restart_btn");
