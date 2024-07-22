@@ -43,6 +43,8 @@ namespace midtermExam
             {
                 //作答區
                 //...
+                var result1 = courseList.Select(x => x.Name);
+                Console.WriteLine(string.Join(" , ", result1));
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -53,7 +55,8 @@ namespace midtermExam
             Console.WriteLine("2. 列出所有在'L107'教室上課的課程ID");
             {
                 //作答區
-
+                var result2 = courseList.Where(x => x.Classroom == "L107").Select(x => x.CourseId);
+                Console.WriteLine(string.Join(" , ", result2));
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -64,6 +67,8 @@ namespace midtermExam
             Console.WriteLine("3. 列出所有在'L107'教室上課，並且學分為3的課程ID");
             {
                 //作答區
+                var result3 = courseList.Where(x => x.Classroom == "L107" && x.Credit == 3).Select(x => x.CourseId);
+                Console.WriteLine(string.Join(" , ", result3));
 
             }
 
@@ -75,6 +80,8 @@ namespace midtermExam
             Console.WriteLine("4. 列出所有老師的名字(名字不能重複出現)");
             {
                 //作答區
+                var result4 = courseList.Select(x => x.Teacher).Distinct();
+                Console.WriteLine(string.Join(" , ",result4));
 
             }
 
@@ -86,6 +93,8 @@ namespace midtermExam
             Console.WriteLine("5. 列出所有有在'L202'上課的老師名字(名字不能重複出現)");
             {
                 //作答區
+                var result5 = courseList.Where(x => x.Classroom == "L202").Select(x => x.Teacher).Distinct();
+                Console.WriteLine(string.Join(" , ", result5));
 
             }
 
