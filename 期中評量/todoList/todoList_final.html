@@ -9,8 +9,18 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./reset.css">
     <style>
+        @font-face {
+            font-family: 'set_font';
+            src: url(./Amatic_SC/AmaticSC-Regular.ttf);
+        }
+
         body {
             background-color: #EBDFC9;
+        }
+
+        * {
+            color: #84443C;
+            font-family: 'set_font';
         }
 
         .calendar-header {
@@ -21,7 +31,9 @@
         }
 
         h2 {
-            font-size: 25px;
+            font-size: 55px;
+            font-family: 'set_font';
+            font-weight: bolder;
         }
 
         .weekday {
@@ -30,6 +42,10 @@
             width: 100%;
             height: 20px;
             text-align: center;
+            font-family: 'set_font';
+            font-size: 20px;
+            font-weight: bold;
+
         }
 
         #days {
@@ -40,22 +56,31 @@
             height: 500px;
 
         }
+
         ul {
             height: 80%;
             overflow: auto;
         }
 
-        /* #prevMonth,#nextMonth {
-            background-color: red;
-        } */
+        #prevMonth,
+        #nextMonth {
+            font-size: 30px;
+            color: #84443C;
+            border: solid 2px #84443C;
+            font-family: 'set_font';
+            font-weight: bold;
+        }
 
-        /* #prevMonth,#nextMonth:hover {
-            color: red;
-        } */
+        #prevMonth:hover,
+        #nextMonth:hover {
+            background-color: #84443C;
+            color: #EBDFC9;
+        }
 
         #days>div.border:hover {
             box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 0.2);
         }
+        
     </style>
 </head>
 
@@ -64,20 +89,21 @@
     <div class="container calendar">
         <!-- 日曆按鈕 -->
         <div class="calendar-header d-flex ">
-            <button class="btn btn-outline-primary mx-5" id="prevMonth">上個月</button>
-            <h2 id="yearPicker"></h2>
+            <button class="btn btn-outline-primary mx-5" id="prevMonth">
+                last month</button>
+            <h2 id="yearPicker" class="me-3"></h2>
             <h2 id="monthPicker"></h2>
-            <button class="btn btn-outline-primary mx-5" id="nextMonth">下個月</button>
+            <button class="btn btn-outline-primary mx-5" id="nextMonth">next month</button>
         </div>
         <!-- 日曆格子 -->
-        <div class="weekday d-grid mt-5">
-            <div>日</div>
-            <div>一</div>
-            <div>二</div>
-            <div>三</div>
-            <div>四</div>
-            <div>五</div>
-            <div>六</div>
+        <div class="weekday d-grid mt-4 mb-1">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
         </div>
         <div class="row d-grid" id="days">
             <!-- template -->

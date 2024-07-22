@@ -10,7 +10,7 @@ let now = new Date();
 let nowYear = now.getFullYear();
 let nowMonth = now.getMonth();
 
-const monthName = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Auguest', 'September', 'October', 'November', 'December'];
 
 // 閏年
 function isLeapYear(year) {
