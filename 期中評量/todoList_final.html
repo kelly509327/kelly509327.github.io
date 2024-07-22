@@ -9,9 +9,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./reset.css">
     <style>
-        /* * {
-            background-color: #D2D2D2;
-        } */
+        body {
+            background-color: #EBDFC9;
+        }
+
         .calendar-header {
             display: flex;
             justify-content: center;
@@ -33,24 +34,28 @@
 
         #days {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: repeat(7, 14.2857143%);
+            grid-template-rows: repeat(5, 20%);
             width: 100%;
             height: 500px;
+
         }
+        ul {
+            height: 80%;
+            overflow: auto;
+        }
+
+        /* #prevMonth,#nextMonth {
+            background-color: red;
+        } */
+
+        /* #prevMonth,#nextMonth:hover {
+            color: red;
+        } */
 
         #days>div.border:hover {
-            box-shadow:10px 10px 10px -10px rgba(0, 0, 0, 0.2);
-                /* inset 0px -10px 10px -10px rgba(0, 0, 0, 0.2), */
-                /* 下面的陰影 */
-                /* inset -10px 0px 10px -10px rgba(0, 0, 0, 0.2), */
-                /* 右邊的陰影 */
-                /* inset 10px 0px 10px -10px rgba(0, 0, 0, 0.2); */
-                /* 左邊的陰影 */
-            ;
+            box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 0.2);
         }
-        
-
     </style>
 </head>
 
@@ -76,9 +81,11 @@
         </div>
         <div class="row d-grid" id="days">
             <!-- template -->
+
             <template id="todo_item_template">
                 <li class="list-group-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></li>
             </template>
+
         </div>
     </div>
 
@@ -127,7 +134,8 @@
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button> -->
                     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" id="save">保存</button>
-                    <button type="button" class="btn btn-outline-danger d-none" data-bs-dismiss="modal" id="delete">刪除</button>
+                    <button type="button" class="btn btn-outline-danger d-none" data-bs-dismiss="modal"
+                        id="delete">刪除</button>
                 </div>
             </div>
         </div>
@@ -138,7 +146,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="./6.js"></script>
+    <script src="./todoList_final.js"></script>
 </body>
 
 </html>
