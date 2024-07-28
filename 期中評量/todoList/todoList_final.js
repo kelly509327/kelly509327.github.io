@@ -143,11 +143,11 @@ if (exampleModal) {
                 document.getElementById('inputColor').value = '#84443C';
                 deleteBtn.classList.remove('d-none');
             }else if(button.classList.contains('list-group-item')){
-                console.log(button)
+                // console.log(button)
                 const block=button.closest('.border');
                 const dataid=block.getAttribute("data-id")
-                console.log(dataid)
-                console.log(block)
+                // console.log(dataid)
+                // console.log(block)
                 const [year, month, day] = dataid.split('-');
                 document.getElementById('inputId').value = todoId || '';
                 document.getElementById('inputDate').value = `${year}-${month}-${day}`;

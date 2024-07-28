@@ -106,6 +106,8 @@ namespace midtermExam
             Console.WriteLine("6. 列出所有女性學生的名字");
             {
                 //作答區
+                var result6 = studentList.Where(x => x.Gender == GenderOption.Female).Select(x => x.Name);
+                Console.WriteLine(string.Join(" , ", result6));
 
             }
 
@@ -117,7 +119,13 @@ namespace midtermExam
             Console.WriteLine("7. 列出有上'Git'這門課的學員名字");
             {
                 //作答區
+                //var result555 = courseList.Where(c => c.Name == "Git").Select(c => c.CourseId);
+                //var result666 = studentList.Where(s => s.CourseList.Any(x => result555.Contains(x))).Select(s => s.Name);
+                //Console.WriteLine(string.Join(" , ", result666));
 
+                var result7 = studentList.Where(s => s.CourseList.Any(y => courseList.Where(c => c.Name == "Git")
+                    .Select(c => c.CourseId).Contains(y))).Select(s => s.Name);
+                Console.WriteLine(string.Join(" , ", result7));
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -136,7 +144,8 @@ namespace midtermExam
             Console.WriteLine("8. 列出每個學員上的每一堂課");
             {
                 //作答區
-
+                var result8 = studentList.Select(s => $"{s.Name}:{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", s.CourseList.Select(x => courseList.First(c => c.CourseId == x).Name))}");
+                Console.WriteLine(string.Join(Environment.NewLine,result8));
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -147,6 +156,10 @@ namespace midtermExam
             Console.WriteLine("9. 找出誰上的課數量最少");
             {
                 //作答區
+                //var result9 = studentList.OrderBy(s=>s.CourseList.Count()).First().Name;
+                //Console.WriteLine(result9);
+
+                var result = studentList.Where(s => s.CourseList.Count == studentList.Min(c => c.CourseList.Count)).Select(x => x.Name);
 
             }
 
@@ -158,7 +171,15 @@ namespace midtermExam
             Console.WriteLine("10. 找出誰修的學分總和小於10");
             {
                 //作答區
+                //var total = studentList.Select(s => s.CourseList.Select(x => courseList.First(c => c.CourseId == x).Credit));
+                //Console.WriteLine(total);
 
+                //var total = studentList.Any(x=>x.credit < 10) ? Console.WriteLine(): Console.WriteLine()
+
+                var result10 = studentList
+                    .Where(s=>s.CourseList.Sum(x=>courseList.First(c=>c.CourseId == x).Credit)<10).Select(s=>s.Name);
+
+                Console.WriteLine(string.Join("", result10));
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -169,7 +190,9 @@ namespace midtermExam
             Console.WriteLine("11. 找出誰最後獲得學分數最高");
             {
                 //作答區
-
+                var result11 = studentList
+                    .OrderByDescending(s => s.CourseList.Sum(x => courseList.First(c => c.CourseId == x).Credit)).First().Name;
+                Console.WriteLine(result11);
             }
 
             Console.WriteLine($"{Environment.NewLine}");
@@ -181,9 +204,14 @@ namespace midtermExam
             {
                 var zoo = new List<string> { "龍", "鼠", "馬", "豬", "羊" }; //答案: 鼠、龍、馬、羊、豬
                 Console.WriteLine($"排序前: {string.Join("、", zoo)}{Environment.NewLine}");
-                Console.Write("排序後: ");
-                //作答區
 
+                //作答區
+                var zoo12 = new List<string> { "鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬" };
+                var result12 = zoo.OrderBy(z => zoo12.IndexOf(z));
+                Console.Write($"排序後:{string.Join("、",result12)}");
+                
+
+                //Sort
             }
 
             #endregion

@@ -1,0 +1,1927 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apple</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <style>
+        @font-face {
+            font-family: 'fontname';
+            src: url(./font/Noto_Sans_TC/static/NotoSansTC-Medium.ttf);
+        }
+
+        /* * {
+            font-family: 'fontname';
+        } */
+
+        .btn.btn-primary.mt-3.rounded-pill {
+            font-size: 12px;
+            background-color: #f5f5f7;
+            color: black;
+            border: #f5f5f7;
+        }
+
+
+        h1 {
+            font-size: 35px;
+            font-weight: bold;
+            /* font-family: 'fontname'; */
+        }
+
+        .total_price {
+            font-size: 12px;
+        }
+
+        .buytxt {
+            /* font-size: 10px !important; */
+        }
+
+        h2 {
+            font-size: 35px;
+            font-weight: bold;
+            padding-top: 50px;
+            /* font-family: 'fontname'; */
+        }
+
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .result {
+            background-color: #f5f5f7;
+        }
+
+        #result_pic {
+            text-align: center;
+        }
+
+        .tax_and_installment,
+        .order_info {
+            font-size: 12px;
+        }
+
+        .commom_problem {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        footer {
+            padding-top: 30px;
+            background-color: #f5f5f7;
+            color: #6c6c6c;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        ul {
+            list-style-type: decimal
+        }
+
+        ul li {
+            padding: 0 10px;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .type_price {
+            display: flex;
+            align-items: center;
+        }
+
+        .type_price {
+            font-size: 12px;
+        }
+
+        small {
+            font-size: 12px;
+        }
+
+
+
+        @media screen and (min-width:992px) {
+            .main_flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .type_flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #type_carousel {
+                width: 60%;
+            }
+
+            #color_choose_right {
+                margin-left: auto;
+            }
+
+            #result {
+                display: flex;
+            }
+
+            .result_inner {
+                order: 1;
+            }
+
+            .box {
+                width: 65%;
+            }
+
+            #result_pic {
+                text-align: start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#">
+                    <img src="./applelogo.png" alt="Bootstrap" width="30" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                    <div class="navbar-nav m-auto ">
+                        <a class="nav-link disabled" href="#">Mac</a>
+                        <a class="nav-link disabled" href="#">iPad</a>
+                        <a class="nav-link active" aria-current="page" href="#" @click="i15proHandler">iPhone 15 Pro</a>
+                        <a class="nav-link active" aria-current="page" href="#" @click="i15Handler">iPhone 15</a>
+                        <a class="nav-link disabled" href="#">Watch</a>
+                        <a class="nav-link disabled" href="#">AirPods</a>
+                        <a class="nav-link disabled" href="#">TV和家庭</a>
+                        <a class="nav-link disabled" href="#">娛樂</a>
+                        <a class="nav-link disabled" href="#">配件</a>
+                        <a class="nav-link disabled" href="#">支援服務</a>
+                    </div>
+                </div>
+                <a class="navbar-brand ms-auto" href="#">
+                    <img src="./search.svg" alt="Bootstrap" width="30" height="30">
+                </a>
+                <a class="navbar-brand ms-0" href="#">
+                    <img src="./shopping.svg" alt="Bootstrap" width="30" height="30">
+                </a>
+            </div>
+        </nav>
+
+        <div class="main">
+            <!-- navbar選iPhone 15 Pro -->
+            <div class="navbarHandler" v-if="navbarHandler">
+                <div class="container">
+                    <div class="main_flex">
+                        <div class="main_title mt-3">
+                            <h1>購買 iPhone 15 Pro</h1>
+                            <div class="total_price">
+                                NT
+                                <span class="mt-3">$44,900</span>
+                                起
+                            </div>
+                        </div>
+                        <div class="discount mt-3">
+                            <!-- Button trigger modal -->
+                            <div class="buytxt text-lg-end">
+                                <button type="button" class="btn btn-primary mt-3 rounded-pill d-block"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    透過換購，可獲享 NT$1,000–NT$22,900 折抵優惠**
+                                </button>
+                                <button type="button" class="btn btn-primary mt-3 rounded-pill">
+                                    <a href="#">可選用零利率分期付款，最長可達 12 月</a>
+                                </button>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title fs-5" id="exampleModalLabel">換購新 iPhone，可獲享
+                                                NT$1,000–NT$22,900折抵優惠**。</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type_flex">
+                        <div class="box">
+                            <!-- 投影幕 -->
+                            <div class="colorUpdate sticky-lg-top">
+                                <template v-if="type === 0">
+                                    <div class="color_display">
+                                        <div id="color_carousel_cover" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_cover"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_cover"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./cover1.webp" class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./cover2.webp" class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_cover" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_cover" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 1">
+                                    <div class="color_display">
+                                        <div id="color_carousel_natural" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./iphone-15-pro-naturaltitanium.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-naturaltitanium_AV1.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-naturaltitanium_AV2.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-naturaltitanium_AV3.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_natural" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_natural" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 2">
+                                    <div class="color_display">
+                                        <div id="color_carousel_blue" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./iphone-15-pro-bluetitanium.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-bluetitanium_AV1.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-bluetitanium_AV2.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-bluetitanium_AV3.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_blue" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_blue" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 3">
+                                    <div class="color_display">
+                                        <div id="color_carousel_white" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./iphone-15-pro-whitetitanium.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-whitetitanium_AV1.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-whitetitanium_AV2.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-whitetitanium_AV3.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_white" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_white" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else="type === 4">
+                                    <div class="color_display">
+                                        <div id="color_carousel_black" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./iphone-15-pro-blacktitanium.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-blacktitanium_AV1.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-blacktitanium_AV2.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./iphone-15-pro-blacktitanium_AV3.webp"
+                                                        class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_black" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_black" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <!-- 開始選購 -->
+                        <div class="choose_items col-lg-4">
+                            <!-- 挑選機型 -->
+                            <div class="choose_type mt-3 ">
+                                <h3 class="fw-bold choose_type_title fs-4">機型。
+                                    <span class="text-black-50 fw-bold">哪一款最適合你?</span>
+                                </h3>
+                                <div class="type_option mt-3">
+                                    <div class="border rounded-4 mt-3" @click="iPhone15Pro">
+                                        <input type="radio" class="btn-check" name="options-base" id="option5"
+                                            autocomplete="off" :value="'36,900起'" v-model="totalPrice">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="option5">
+                                            <div class="text_flex d-flex flex-column m-3">
+                                                <div class="type fw-bold text-start" ref="i15pro">
+                                                    iPhone 15 Pro
+                                                </div>
+                                                <span class="text-black-50 text-start"><small>6.1吋顯示器¹</small></span>
+                                            </div>
+                                            <div class="type_price">
+                                                NT$36,900起
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="border rounded-4 mt-3" @click="iPhone15ProMax">
+                                        <input type="radio" class="btn-check" name="options-base" id="option6"
+                                            autocomplete="off" :value="'44,900起'" v-model="totalPrice">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="option6">
+                                            <div class="text_flex d-flex flex-column m-3">
+                                                <div class="type fw-bold text-start" ref="i15promax">
+                                                    iPhone 15 Pro Max <br>
+                                                </div>
+                                                <span class="text-black-50 text-start"><small>6.7吋顯示器¹</small></span>
+                                            </div>
+                                            <div class="type_price">
+                                                NT$44,900起
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 挑選外觀 -->
+                            <div class="choose_color mt-5">
+                                <h3 class="fw-bold fs-4 me-lg-auto" id="color_choose_right">外觀。
+                                    <span class="text-black-50 fw-bold">挑選你喜愛的外觀。</span>
+                                </h3>
+                                <div class="colorUpdate d-lg-none">
+                                    <template v-if="type === 1">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_natural" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./iphone-15-pro-naturaltitanium.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-naturaltitanium_AV1.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-naturaltitanium_AV2.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-naturaltitanium_AV3.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_natural" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_natural" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else-if="type === 2">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_blue" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./iphone-15-pro-bluetitanium.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-bluetitanium_AV1.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-bluetitanium_AV2.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-bluetitanium_AV3.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_blue" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_blue" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else-if="type === 3">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_white" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./iphone-15-pro-whitetitanium.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-whitetitanium_AV1.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-whitetitanium_AV2.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-whitetitanium_AV3.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_white" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_white" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else="type === 4">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_black" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./iphone-15-pro-blacktitanium.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-blacktitanium_AV1.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-blacktitanium_AV2.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./iphone-15-pro-blacktitanium_AV3.webp"
+                                                            class="d-block w-100" alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_black" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_black" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                                <h4 class="fw-bold fs-6 mt-5 me-lg-auto">顏色
+                                    <span>{{colorResult}}</span>
+                                </h4>
+                                <div class="color_option mt-3 mb-5">
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="primary_color"
+                                        v-model="colorResult" autocomplete="off" @click="colorHandler(1)">
+                                    <label class="btn rounded-4" for="primary_color">
+                                        <img src="./原色金屬.jpg" alt="原色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="blue_color"
+                                        v-model="colorResult" autocomplete="off" @click="colorHandler(2)">
+                                    <label class="btn rounded-4" for="blue_color">
+                                        <img src="./藍色金屬.jpg" alt="藍色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="white_color"
+                                        v-model="colorResult" autocomplete="off" @click="colorHandler(3)">
+                                    <label class="btn rounded-4" for="white_color">
+                                        <img src="./白色金屬.jpg" alt="白色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="black_color"
+                                        v-model="colorResult" autocomplete="off" @click="colorHandler(4)">
+                                    <label class="btn rounded-4" for="black_color">
+                                        <img src="./黑色金屬.jpg" alt="黑色" width="30" height="30">
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- 挑選儲存裝置 -->
+                            <div class="choose_storage_device mt-5">
+                                <h2 class="fw-bold fs-4">儲存裝置。
+                                    <span class="text-black-50 fw-bold">你需要多少儲存空間？</span>
+                                </h2>
+                                <template v-if="isActive">
+                                    <div class="storage_option mt-3">
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="128GB" autocomplete="off" :value="'36,900'" v-model="totalPrice"
+                                                @click="updateByte128">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="128GB">
+                                                <div class="type fw-bold m-3 text-body-darld" ref="s128">
+                                                    128GB²
+                                                </div>
+                                                <div class="type_price">
+                                                    NT$
+                                                    <span>36,900</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="256GB" autocomplete="off" :value="'40,400'" v-model="totalPrice"
+                                                @click="updateByte256">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="256GB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="s256">
+                                                    256GB²
+                                                </div>
+                                                <div class="type_price">
+                                                    NT$
+                                                    <span>40,400</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="512GB" autocomplete="off" :value="'47,400'" v-model="totalPrice"
+                                                @click="updateByte512">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="512GB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="s512">
+                                                    512GB²
+                                                </div>
+                                                <div class="type_price">
+                                                    NT$
+                                                    <span>47,400</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="1TB" autocomplete="off" :value="'54,400'" v-model="totalPrice"
+                                                @click="updateByte1024">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="1TB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="s1024">
+                                                    1TB²
+                                                </div>
+                                                <div class="type_price">
+                                                    NT$
+                                                    <span>54,400</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div class="storage_option mt-3">
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="Max256GB" autocomplete="off" :value="'44,900'" v-model="totalPrice"
+                                                @click="updateBytesm256">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="Max256GB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="sm256">
+                                                    256GB²
+                                                </div>
+                                                <div class="type_price text-black-50">
+                                                    NT$
+                                                    <span>44,900</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="Max512GB" autocomplete="off" :value="'51,900'" v-model="totalPrice"
+                                                @click="updateBytesm512">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="Max512GB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="sm512">
+                                                    512GB²
+                                                </div>
+                                                <div class="type_price text-black-50">
+                                                    NT$
+                                                    <span>51,900</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="border rounded-4 mt-3">
+                                            <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                                id="Max1TB" autocomplete="off" :value="'58,900'" v-model="totalPrice"
+                                                @click="updateBytesm1024">
+                                            <label class="btn d-flex justify-content-between rounded-4" for="Max1TB">
+                                                <div class="type fw-bold m-3 text-body-darl" ref="sm1024">
+                                                    1TB²
+                                                </div>
+                                                <div class="type_price text-black-50">
+                                                    NT$
+                                                    <span>58,900</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 選擇結果 -->
+                <div class="result mt-5">
+                    <div class="container" id="result">
+                        <div class="result_title col-lg-4">
+                            <h2>你的全新
+                                <span class="d-block"> {{models}}。</span>
+                                <span class="d-block text-black-50 mt-3">依你的需求量身打造。</span>
+                            </h2>
+                            <div class="result_pic mt-5" id="result_pic">
+                                <img :src="imgResult" alt="Selected Color" width="70%" height="70%">
+                            </div>
+                        </div>
+                        <div class="result_inner col-lg-4">
+                            <h4 class="result_txt mt-3 fs-6">{{models}} {{byte}} {{colorResult}}</h4>
+                            <h4 class="result_price mt-3 fs-6 fw-bold">{{totalPrice ? 'NT$' + totalPrice : 'NT$36,900起'
+                                }}
+                            </h4>
+                            <div class="tax_and_installment">
+                                <p class="tax mt-4 fs-8 text-black-50">含加值型營業稅：約 NT${{getTax}}*。</p>
+                                <p class="installment text-primary mt-3 fs-8" id="installment">
+                                    <span>
+                                        <img src="./info.svg" alt="info" width="15" height="15">
+                                    </span>
+                                    0% 利率分期付款，每月 NT$ {{getInstallment}} 起，共 12 個月
+                                </p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary mt-3" type="button">加入購物袋</button>
+                            </div>
+                        </div>
+                        <div class="order_info col-lg-4 me-5">
+                            <div class="order_store">
+                                <p class="mt-5 border-bottom fw-bold p-3">立即訂購。店內取貨：
+                                    <span class="d-block mt-2 fw-medium">明天，地點：Apple 台北 101</span>
+                                    <span class="d-block mt-2 fw-medium"><a href="#"
+                                            class="text-primary">查看其他直營店</a></span>
+                                </p>
+                            </div>
+                            <div class="order_time">
+                                <p class="mt-3 border-bottom fw-bold p-3">需要一點時間嗎？
+                                    <span
+                                        class="d-block mt-2 fw-medium lh-base">將這部裝置收藏到「你的收藏」，即可保留你選擇的所有配置，你可以隨時從上次離開處接續進行。</span>
+                                    <span class="d-block mt-2 fw-medium"><a href="#"
+                                            class="text-primary">收藏供日後使用</a></span>
+                                </p>
+                            </div>
+                            <div class="order_area">
+                                <p class="mt-3 border-bottom p-3">你所在地區的運送詳細資訊將在「結帳」顯示。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 包裝盒內容 -->
+                <div class="box_contents container">
+                    <h2 class="text-center fs-3">包裝盒內容</h2>
+                    <div class="type_carousel w-50 m-auto">
+                        <div id="box_contents_carousel" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#box_contents_carousel" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#box_contents_carousel" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner mt-3">
+                                <div class="carousel-item active">
+                                    <img :src="boxResult" class="d-block w-100" alt="Bootstrap">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./i15/ChargingCable.png" class="d-block w-100" alt="Bootstrap">
+                                    <!-- <img src="./iphone-15-pro-braided-cable-witb-202309.jpg" class="d-block w-100" alt="Bootstrap"> -->
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#box_contents_carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#box_contents_carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <p class="text-center">{{models}}</p> -->
+                </div>
+            </div>
+            <!-- navbar選iPhone 15 -->
+            <div class="navbarHandler" v-else>
+                <div class="container">
+                    <div class="main_flex">
+                        <div class="main_title mt-3">
+                            <h1>購買 iPhone 15</h1>
+                            <div class="total_price">
+                                NT
+                                <span class="mt-3">$40,400</span>
+                                起
+                            </div>
+                        </div>
+                        <div class="discount mt-3">
+                            <!-- Button trigger modal -->
+                            <div class="buytxt text-lg-end">
+                                <button type="button" class="btn btn-primary mt-3 rounded-pill d-block"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    透過換購，可獲享 NT$1,000–NT$22,900 折抵優惠**
+                                </button>
+                                <button type="button" class="btn btn-primary mt-3 rounded-pill">
+                                    <a href="#">可選用零利率分期付款，最長可達 12 月</a>
+                                </button>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title fs-5" id="exampleModalLabel">換購新 iPhone，可獲享
+                                                NT$1,000–NT$22,900折抵優惠**。</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type_flex">
+                        <div class="box">
+                            <!-- 投影幕 -->
+                            <div class="colorUpdate sticky-lg-top">
+                                <template v-if="type === 0">
+                                    <div class="color_display">
+                                        <div id="i15_color_carousel_cover" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#i15_color_carousel_cover"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#i15_color_carousel_cover"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/cover1.webp" class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/cover2.webp" class="d-block w-100" alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#i15_color_carousel_cover" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#i15_color_carousel_cover" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 1">
+                                    <div class="color_display">
+                                        <div id="color_carousel_natural" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_natural"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/iphone-15-blue.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-blue_AV1.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-blue_AV2.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_natural" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_natural" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 2">
+                                    <div class="color_display">
+                                        <div id="color_carousel_blue" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_blue"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/iphone-15-pink.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-pink_AV1.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-pink_AV2.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_blue" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_blue" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 3">
+                                    <div class="color_display">
+                                        <div id="color_carousel_white" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_white"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/iphone-15-yellow.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-yellow_AV1.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-yellow_AV2.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_white" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_white" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else-if="type === 4">
+                                    <div class="color_display">
+                                        <div id="color_carousel_green" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_green"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_green"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_green"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/iphone-15-green.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-green_AV1.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-green_AV2.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_green" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_green" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else="type === 5">
+                                    <div class="color_display">
+                                        <div id="color_carousel_black" class="carousel slide color_carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#color_carousel_black"
+                                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner mt-3 rounded-4">
+                                                <div class="carousel-item active">
+                                                    <img src="./i15/iphone-15-black.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-black_AV1.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./i15/iphone-15-black_AV2.webp" class="d-block w-100"
+                                                        alt="Bootstrap">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#color_carousel_black" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#color_carousel_black" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <!-- 開始選購 -->
+                        <div class="choose_items col-lg-4">
+                            <!-- 挑選機型 -->
+                            <div class="choose_type mt-3 ">
+                                <h3 class="fw-bold choose_type_title fs-4">機型。
+                                    <span class="text-black-50 fw-bold">哪一款最適合你?</span>
+                                </h3>
+                                <div class="type_option mt-3">
+                                    <div class="border rounded-4 mt-3" @click="iPhone15Pro">
+                                        <input type="radio" class="btn-check" name="options-base" id="option5"
+                                            autocomplete="off" :value="'29,900起'" v-model="totalPrice">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="option5">
+                                            <div class="text_flex d-flex flex-column m-3">
+                                                <div class="type fw-bold text-start" ref="i15pro">
+                                                    iPhone 15
+                                                </div>
+                                                <span class="text-black-50 text-start"><small>6.1吋顯示器¹</small></span>
+                                            </div>
+                                            <div class="type_price">
+                                                NT$29,900起
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="border rounded-4 mt-3" @click="iPhone15ProMax">
+                                        <input type="radio" class="btn-check" name="options-base" id="option6"
+                                            autocomplete="off" :value="'32,900起'" v-model="totalPrice">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="option6">
+                                            <div class="text_flex d-flex flex-column m-3">
+                                                <div class="type fw-bold text-start" ref="i15promax">
+                                                    iPhone 15 Plus <br>
+                                                </div>
+                                                <span class="text-black-50 text-start"><small>6.7吋顯示器¹</small></span>
+                                            </div>
+                                            <div class="type_price">
+                                                NT$32,900起
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 挑選外觀 -->
+                            <div class="choose_color mt-5">
+                                <h3 class="fw-bold fs-4 me-lg-auto" id="color_choose_right">外觀。
+                                    <span class="text-black-50 fw-bold">挑選你喜愛的外觀。</span>
+                                </h3>
+                                <!-- 顏色投影幕 -->
+                                <div class="colorUpdate d-lg-none">
+                                    <template v-if="type === 1">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_natural" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_natural"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./i15/iphone-15-blue.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-blue_AV1.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-blue_AV2.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_natural" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_natural" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else-if="type === 2">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_blue" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_blue"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./i15/iphone-15-pink.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-pink_AV1.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-pink_AV2.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_blue" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_blue" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else-if="type === 3">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_white" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_white"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./i15/iphone-15-yellow.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-yellow_AV1.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-yellow_AV2.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_white" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_white" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else-if="type === 4">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_green" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_green"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_green"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_green"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./i15/iphone-15-green.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-green_AV1.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-green_AV2.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_green" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_green" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template v-else="type === 5">
+                                        <div class="color_display">
+                                            <div id="s_color_carousel_black" class="carousel slide color_carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#s_color_carousel_black"
+                                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner mt-3 rounded-4">
+                                                    <div class="carousel-item active">
+                                                        <img src="./i15/iphone-15-black.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-black_AV1.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="./i15/iphone-15-black_AV2.webp" class="d-block w-100"
+                                                            alt="Bootstrap">
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#s_color_carousel_black" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#s_color_carousel_black" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                                <h4 class="fw-bold fs-6 mt-5 me-lg-auto">顏色
+                                    <span>{{i15colorResult}}</span>
+                                </h4>
+                                <div class="color_option mt-3 mb-5">
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="primary_color"
+                                        v-model="i15colorResult" autocomplete="off" @click="colorHandler(1)">
+                                    <label class="btn rounded-4" for="primary_color">
+                                        <img src="./i15/finish-blue-202309.jpg" alt="藍色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="blue_color"
+                                        v-model="i15colorResult" autocomplete="off" @click="colorHandler(2)">
+                                    <label class="btn rounded-4" for="blue_color">
+                                        <img src="./i15/finish-pink-202309.jpg" alt="粉色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="white_color"
+                                        v-model="i15colorResult" autocomplete="off" @click="colorHandler(3)">
+                                    <label class="btn rounded-4" for="white_color">
+                                        <img src="./i15/finish-yellow-202309.jpg" alt="黃色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="green_color"
+                                        v-model="i15colorResult" autocomplete="off" @click="colorHandler(4)">
+                                    <label class="btn rounded-4" for="green_color">
+                                        <img src="./i15/finish-green-202309.jpg" alt="綠色" width="30" height="30">
+                                    </label>
+                                    <input type="radio" class="btn-check" name="choose_color_option" id="black_color"
+                                        v-model="i15colorResult" autocomplete="off" @click="colorHandler(5)">
+                                    <label class="btn rounded-4" for="black_color">
+                                        <img src="./i15/finish-black-202309.jpg" alt="黑色" width="30" height="30">
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- 挑選儲存裝置 -->
+                            <div class="choose_storage_device mt-5">
+                                <h2 class="fw-bold fs-4">儲存裝置。
+                                    <span class="text-black-50 fw-bold">你需要多少儲存空間？</span>
+                                </h2>
+                                <div class="storage_option mt-3">
+                                    <div class="border rounded-4 mt-3">
+                                        <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                            id="128GB" autocomplete="off" :value="'29,900'" v-model="totalPrice"
+                                            @click="updateByte128">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="128GB">
+                                            <div class="type fw-bold m-3 text-body-darld" ref="s128">
+                                                128GB²
+                                            </div>
+                                            <div class="type_price">
+                                                NT$
+                                                <span>29,900</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="border rounded-4 mt-3">
+                                        <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                            id="256GB" autocomplete="off" :value="'33,400'" v-model="totalPrice"
+                                            @click="updateByte256">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="256GB">
+                                            <div class="type fw-bold m-3 text-body-darl" ref="s256">
+                                                256GB²
+                                            </div>
+                                            <div class="type_price">
+                                                NT$
+                                                <span>33,400</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="border rounded-4 mt-3">
+                                        <input type="radio" class="btn-check" name="choose_storage_device_option"
+                                            id="512GB" autocomplete="off" :value="'40,400'" v-model="totalPrice"
+                                            @click="updateByte512">
+                                        <label class="btn d-flex justify-content-between rounded-4" for="512GB">
+                                            <div class="type fw-bold m-3 text-body-darl" ref="s512">
+                                                512GB²
+                                            </div>
+                                            <div class="type_price">
+                                                NT$
+                                                <span>40,400</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 選擇結果 -->
+                <div class="result mt-5">
+                    <div class="container" id="result">
+                        <div class="result_title col-lg-4">
+                            <h2>你的全新
+                                <span class="d-block"> {{models}}。</span>
+                                <span class="d-block text-black-50 mt-3">依你的需求量身打造。</span>
+                            </h2>
+                            <div class="result_pic mt-5" id="result_pic">
+                                <img :src="i15imgResult" alt="Selected Color" width="70%" height="70%">
+                            </div>
+                        </div>
+                        <div class="result_inner col-lg-4">
+                            <h4 class="result_txt mt-3 fs-6">{{models}} {{byte}} {{i15colorResult}}</h4>
+                            <h4 class="result_price mt-3 fs-6 fw-bold">{{totalPrice ? 'NT$' + totalPrice : 'NT$36,900起'
+                                }}
+                            </h4>
+                            <div class="tax_and_installment">
+                                <p class="tax mt-4 fs-8 text-black-50">含加值型營業稅：約 NT${{getTax}}*。</p>
+                                <p class="installment text-primary mt-3 fs-8" id="installment">
+                                    <span>
+                                        <img src="./info.svg" alt="info" width="15" height="15">
+                                    </span>
+                                    0% 利率分期付款，每月 NT$ {{getInstallment}} 起，共 12 個月
+                                </p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary mt-3" type="button">加入購物袋</button>
+                            </div>
+                        </div>
+                        <div class="order_info col-lg-4 me-5">
+                            <div class="order_store">
+                                <p class="mt-5 border-bottom fw-bold p-3">立即訂購。店內取貨：
+                                    <span class="d-block mt-2 fw-medium">明天，地點：Apple 台北 101</span>
+                                    <span class="d-block mt-2 fw-medium"><a href="#"
+                                            class="text-primary">查看其他直營店</a></span>
+                                </p>
+                            </div>
+                            <div class="order_time">
+                                <p class="mt-3 border-bottom fw-bold p-3">需要一點時間嗎？
+                                    <span
+                                        class="d-block mt-2 fw-medium lh-base">將這部裝置收藏到「你的收藏」，即可保留你選擇的所有配置，你可以隨時從上次離開處接續進行。</span>
+                                    <span class="d-block mt-2 fw-medium"><a href="#"
+                                            class="text-primary">收藏供日後使用</a></span>
+                                </p>
+                            </div>
+                            <div class="order_area">
+                                <p class="mt-3 border-bottom p-3">你所在地區的運送詳細資訊將在「結帳」顯示。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 包裝盒內容 -->
+                <div class="box_contents container">
+                    <h2 class="text-center fs-3">包裝盒內容</h2>
+                    <div class="type_carousel w-50 m-auto">
+                        <div id="box_contents_carousel" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#box_contents_carousel" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#box_contents_carousel" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner mt-3">
+                                <div class="carousel-item active">
+                                    <img :src="i15boxResult" class="d-block w-100" alt="Bootstrap">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./i15/ChargingCable.png" class="d-block w-100" alt="Bootstrap">
+                                    <!-- <img src="./iphone-15-pro-braided-cable-witb-202309.jpg" class="d-block w-100" alt="Bootstrap"> -->
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#box_contents_carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#box_contents_carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <p class="text-center">{{models}}</p> -->
+                </div>
+            </div>
+
+            <!-- 常見問題 -->
+            <div class="container my-5">
+                <div class="commom_problem">
+                    <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold fs-3" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#accordion-items" aria-expanded="true"
+                                    aria-controls="accordion-items">
+                                    常見問題
+                                </button>
+                            </h2>
+                            <div id="accordion-items" class="accordion-collapse collapse show ">
+                                <div class="accordion-body">
+                                    <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                                        <div class="accordion-item">
+                                            <h4 class="accordion-header">
+                                                <button class="accordion-button fw-bold" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                                    aria-controls="panelsStayOpen-collapseOne">
+                                                    為什麼要在 apple.com 購買不含 SIM 卡的 iPhone？
+                                                </button>
+                                            </h4>
+                                            <div id="panelsStayOpen-collapseOne"
+                                                class="accordion-collapse collapse show">
+                                                <div class="accordion-body">
+                                                    <p>自 apple.com 購買的未連接電信業者網路方案的 iPhone
+                                                        都已解鎖，因此你不必受限於單一網路供應商或多年的服務合約。你可以選擇適合自己的網路及資費方案。你的全新 iPhone
+                                                        啟用後會保持解鎖狀態，這表示你可以使用任何為
+                                                        iPhone 提供服務的網路。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h4 class="accordion-header">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                                    aria-controls="panelsStayOpen-collapseTwo">
+                                                    哪些電信業者提供 5G 服務？
+                                                </button>
+                                            </h4>
+                                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <p>iPhone 15 Pro、iPhone 15、iPhone 14、iPhone 13、以及 iPhone SE 均支援
+                                                        5G。要連接
+                                                        5G，須透過提供 5G
+                                                        服務的網路供應商來啟用你的 iPhone。部分供應商可能要求使用 5G 服務方案或新的 SIM
+                                                        卡。請洽詢你的供應商，以取得進一步資訊。
+                                                        請在
+                                                        <span><a href="#" class="text-primary">這裡</a></span>
+                                                        進一步了解你所在國家或地區的網路供應商。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h4 class="accordion-header">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                                    aria-controls="panelsStayOpen-collapseThree">
+                                                    我的 iPhone 在全世界都能使用嗎？
+                                                </button>
+                                            </h4>
+                                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <p>所有 iPhone 機型均是全球通用的手機，讓你幾乎可在任何地方使用。你可以在全球超過 200 個國家或地區透過 GSM
+                                                        網路進行國際漫遊。如果你透過無線電信業者分期付款購買 iPhone，請聯絡他們以確認你是否可進行國際漫遊。</p>
+                                                    <p>5G 與 LTE 數據服務的供應狀況視國家或地區而異，並視電信業者支援的特定 5G 與 LTE
+                                                        無線電頻率而定。請洽詢你的電信業者，進一步了解國際漫遊注意事項與資費說明。
+                                                    </p>
+                                                    <p><a href="#" class="text-primary">按電信業者與國家或地區查看 iPhone 對 5G 與 LTE
+                                                            網路的支援情況</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h4 class="accordion-header">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                                    aria-controls="panelsStayOpen-collapseFour">
+                                                    移轉資料和設定我的新 iPhone 容易嗎？
+                                                </button>
+                                            </h4>
+                                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <p>容易，iCloud 能把你的各種設定、照片、app 及文件，順暢無縫地移轉到新裝置。只要在設定新裝置時登入
+                                                        iCloud，存取上一部裝置的
+                                                        iCloud
+                                                        備份，幾分鐘即可設定完成。</p>
+                                                    <p>沒有足夠的 iCloud 儲存空間以完成備份？iCloud
+                                                        會提供足夠的暫時儲存空間，以確保你能備份裝置，並移轉你所有的資料，不須付費
+                                                        (須使用 iOS 15)。</p>
+                                                    <p>透過「快速開始」，你可從 iCloud 備份將資料與內容回復到新的 iPhone。針對搭載 iOS 12.4
+                                                        或以上版本的手機，「快速開始」提供裝置對裝置的移轉選項，讓你以無線方式將所有資料從現有裝置移轉到新裝置。</p>
+                                                    <p>如果你是從 Android 裝置轉用 iPhone，須先下載「移轉到 iOS」app，再依照新 iPhone 上的設定步驟進行。
+                                                    </p>
+                                                    <p>若要了解如何將資料移轉到你的新 iPhone，請參閱 <span><a href="#"
+                                                                class="text-primary">https://support.apple.com/zh-tw/119967</a></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h4 class="accordion-header">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                                                    aria-controls="panelsStayOpen-collapseFive">
+                                                    我可以將 iPhone 退貨嗎？
+                                                </button>
+                                            </h4>
+                                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <p>可以。如果你改變心意，不想再保留 iPhone，可以選擇退貨給我們。iPhone
+                                                        退回時必須狀況良好，置於原始包裝內，原始包裝須包含所有配件、使用手冊和說明。退貨須遵守
+                                                        Apple 的銷售及退款政策。</p>
+                                                    <p><span><a href="#">進一步了解退貨、退款與換貨</a></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <p class="mt-2">價格皆含稅與運送費用。</p>
+                <p class="mt-2">* 上述費用為近似值，可能會隨時間變動。</p>
+                <p class="mt-2">
+                    ** 折抵換購服務由 Apple
+                    的換購服務合作夥伴提供。折抵金額報價僅為預估價，實際折抵換購價值可能低於估價。實際換購估價視你折抵換購裝置的狀況、推出年份與機型而有所差異。並非所有裝置均符合折抵條件。你必須至少年滿
+                    20 歲，才有折抵換購的資格，以獲享折抵優惠或取得 Apple Store 禮品卡。你現有裝置的價值，可能適用於購買新 Apple
+                    裝置。實際獲得的換購價值，是根據收到符合條件的裝置，是否吻合你在估價時所提供的描述而定。可能須按照新裝置的全額售價繳納加值型營業稅。店內換購須出示政府核發的有效照片證件，才能享有此項優惠
+                    (當地法律可能要求保存這份資訊)。優惠可能無法在所有直營店提供，線上和店內折抵換購的估價可能會有所不同。部分直營店可能會有額外的要求。Apple 直營店不提供電腦換購。Apple
+                    的換購服務合作夥伴保留以任何理由拒絕或限制接受任何裝置 (及其數量) 參與本優惠的權利。更多詳情可自 Apple 的換購服務合作夥伴取得，以了解符合換購及回收條件的裝置。須遵守 Apple
+                    的換購服務合作夥伴所訂立的其他條款。
+                </p>
+                <p class="mt-2">
+                    *** 僅適用於新訂戶。訂閱方案會按你所在地區的月費自動續訂，直到取消為止。須受限制與其他條款約束。不論購買多少部符合條件的裝置，每個 Apple ID 僅可獲享一次優惠。優惠不得與 Apple
+                    Music
+                    的其他免費試用或優惠合併使用。購買符合條件的音訊裝置：優惠限時提供，新訂戶須將符合條件的裝置連線至執行 iOS 15 或 iPadOS 15 或以上版本的 Apple 裝置。優惠在符合條件裝置配對後的
+                    3
+                    個月內有效。目前已有音訊裝置符合條件的使用者無須再購買產品。購買並啟用新 iPhone：優惠限時提供，新訂戶須購買並啟用全新 iPhone。優惠在符合條件的 iPhone 啟用後的 3 個月內有效。
+                </p>
+                <ul>
+                    <li>
+                        顯示器的圓角具有優美的曲線設計，並呈現在一個標準矩形之內。以標準矩形量測時，螢幕的對角線長度為 5.42 吋 (iPhone 13 mini)、6.06 吋 (iPhone 13、iPhone
+                        14)、6.12 吋 (iPhone 14 Pro)、6.68 吋 (iPhone 14 Plus) 或 6.69 吋 (iPhone 14 Pro Max)。實際可視區較小。
+                    </li>
+                    <li class="mt-2">
+                        可用空間會隨著多項因素而減少並有所差異。標準配置會視乎型號和設定，取用約 12GB 至 17GB 的空間，包括 iOS 16 和其最新功能，以及可刪除的各款 Apple
+                        app。可刪除的各款Apple
+                        app 約佔 4.5GB 空間，你可隨時從 App Store 重新下載這些 app。儲存空間會視乎軟件版本、設定和 iPhone 型號而改變。
+                    </li>
+                    <li class="mt-2">
+                        所列舉的電池效能因受網路配置與許多其他因素影響；實際結果可能有所差異。電池的充電循環次數有限，最終仍可能須要更換。電池使用時間與充電次數視使用情況及設定狀態而異。請參閱apple.com/tw/batteries
+                        與 apple.com/tw/iphone/battery.html，以取得進一步資訊。
+                    </li>
+                    <li class="mt-2">
+                        須使用數據方案。5G 僅於特定地區並透過特定電信業者提供。連線速度會因所在地情況及電信業者而異。如需 5G 支援的詳細資訊，請洽詢你的電信業者並參閱
+                        apple.com/tw/iphone/cellular。
+                    </li>
+                    <li class="my-2">
+                        我們會透過你的網際網路 IP 位址所對應的地理區域，或你上次瀏覽 Apple 網站輸入的位置資訊，估計你的約略位置。
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+        const app = createApp({
+            data() {
+                return {
+                    isActive: true,
+                    totalPrice: null,
+                    colorResult: null,
+                    imgResult: './iphone-15-pro-naturaltitanium-result.jpg',
+                    boxResult: './natural_box.png',
+                    i15colorResult: null,
+                    i15imgResult: './i15/iphone-15-blue-result.jpg',
+                    i15boxResult: './i15/blue_box.png',
+                    iphoneName: '',
+                    models: '',
+                    byte: '',
+                    type: 0,
+                    i15pro_color: [' - 原色鈦金屬', ' - 藍色鈦金屬', ' - 白色鈦金屬', ' - 黑色鈦金屬'],
+                    i15pro_img: [
+                        './iphone-15-pro-naturaltitanium-result.jpg',
+                        './iphone-15-pro-bluetitanium-result.jpg',
+                        './iphone-15-pro-whitetitanium-result.jpg',
+                        './iphone-15-pro-blacktitanium-result.jpg'
+                    ],
+                    i15pro_box: [
+                        './natural_box.png',
+                        './blue-box.png',
+                        './white-box.png',
+                        './black-box.png',
+                    ],
+                    navbarHandler: true,
+                    i15_color: [' - 藍色', ' - 粉紅色', ' - 黃色', ' - 綠色', ' - 黑色'],
+                    i15_img: [
+                        './i15/iphone-15-blue-result.jpg',
+                        './i15/iphone-15-pink-result.jpg',
+                        './i15/iphone-15-yellow-result.jpg',
+                        './i15/iphone-15-green-result.jpg',
+                        './i15/iphone-15-black-result.jpg',
+                    ],
+                    i15_box:[
+                        './i15/blue_box.png',
+                        './i15/pink-box.png',
+                        './i15/yelloe-box.png',
+                        './i15/green-box.png',
+                        './i15/black-box.png',
+                    ],
+
+                    // i15pro_color: [{
+                    //     name: ' - 原色鈦金屬',
+                    //     img: './iphone-15-pro-naturaltitanium-result.jpg" alt="" width="70%" height="70%',
+                    // },
+                    // {
+                    //     name: ' - 藍色鈦金屬',
+                    //     img: './iphone-15-pro-bluetitanium-result.jpg" alt="" width="70%" height="70%',
+                    // },
+                    // {
+                    //     name: ' - 白色鈦金屬',
+                    //     img: './iphone-15-pro-whitetitanium-result.jpg" alt="" width="70%" height="70%',
+                    // },
+                    // {
+                    //     name: ' - 黑色鈦金屬',
+                    //     img: './iphone-15-pro-blacktitanium-result.jpg" alt="" width="70%" height="70%',
+                    // },]
+                };
+            },
+            methods: {
+                i15proHandler() {
+                    this.navbarHandler = true;
+                },
+                i15Handler() {
+                    this.navbarHandler = false;
+                },
+                iPhone15Pro() {
+                    this.isActive = true;
+                    this.models = this.$refs.i15pro.textContent;
+                },
+                iPhone15ProMax() {
+                    this.isActive = false;
+                    this.models = this.$refs.i15promax.textContent;
+                },
+                updateByte128() {
+                    this.byte = this.$refs.s128.textContent;
+
+                },
+                updateByte256() {
+                    this.byte = this.$refs.s256.textContent;
+                },
+                updateByte512() {
+                    this.byte = this.$refs.s512.textContent;
+                },
+                updateByte1024() {
+                    this.byte = this.$refs.s1024.textContent;
+
+                },
+                updateBytesm256() {
+                    this.byte = this.$refs.sm256.textContent;
+
+                },
+                updateBytesm512() {
+                    this.byte = this.$refs.sm512.textContent;
+                },
+                updateBytesm1024() {
+                    this.byte = this.$refs.sm1024.textContent;
+
+                },
+                colorHandler(type) {
+                    this.type = type;
+                    this.colorResult = this.i15pro_color[type - 1];
+                    this.imgResult = this.i15pro_img[type - 1];
+                    this.i15colorResult = this.i15_color[type - 1];
+                    this.i15imgResult = this.i15_img[type - 1];
+                    this.boxResult = this.i15pro_box[type - 1];
+                    this.i15boxResult= this.i15_box[type - 1];
+                },
+            },
+            computed: {
+                getInstallment() {
+                    if (this.totalPrice) {
+                        const clean = this.totalPrice.split(',').join('');
+                        const number = parseFloat(clean);
+                        return (number / 12).toFixed(0);
+                    }
+                    return '0';
+                },
+                getTax() {
+                    if (this.totalPrice) {
+                        const clean = this.totalPrice.split(',').join('');
+                        const number = parseFloat(clean);
+                        return (number * 0.0476169).toFixed(0);
+                    }
+                    return '0';
+                },
+                // displayResult() {
+                //     if (this.type === 1) return "1";
+                //     if (this.type === 2) return "2";
+                //     if (this.type === 3) return "3";
+                //     if (this.type === 4) return "4";
+
+                // },
+
+            },
+            watch: {
+                colorResult(newValue) {
+                    const type = this.i15pro_color.indexOf(newValue) + 1;
+                    this.imgResult = this.i15pro_img[type - 1];
+                    this.i15colorResult = this.i15_color[type - 1];
+                    this.i15imgResult = this.i15_img[type - 1];
+                }
+            }
+        });
+        app.mount("#app");
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- <script src="./main.js"></script> -->
+</body>
+
+</html>
