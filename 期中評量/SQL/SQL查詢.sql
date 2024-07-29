@@ -104,7 +104,7 @@ SELECT
     s.CompanyName,
     COUNT(o.OrderID) AS OrderCount
 FROM Shippers s
-JOIN  Orders o ON s.ShipperID = o.ShipVia
+LEFT JOIN  Orders o ON s.ShipperID = o.ShipVia
 GROUP BY s.ShipperID, s.CompanyName
 ORDER BY OrderCount DESC
 
@@ -114,7 +114,7 @@ SELECT
     p.ProductName,
     COUNT(od.OrderID) AS OrderCount
 FROM Products p
-JOIN [Order Details] od ON p.ProductID = od.ProductID
+LEFT JOIN [Order Details] od ON p.ProductID = od.ProductID
 GROUP BY p.ProductID, p.ProductName
 HAVING COUNT(od.OrderID) < 9
 ORDER BY OrderCount

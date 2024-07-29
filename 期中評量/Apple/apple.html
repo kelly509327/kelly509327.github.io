@@ -672,22 +672,26 @@
                                 </h4>
                                 <div class="color_option mt-3 mb-5">
                                     <input type="radio" class="btn-check" name="choose_color_option" id="primary_color"
-                                        v-model="colorResult" autocomplete="off" @click="colorHandler(1)">
+                                        :checked="colorResult === '原色鈦金屬'" autocomplete="off"
+                                        @click="colorHandler(1)">
                                     <label class="btn rounded-4" for="primary_color">
                                         <img src="./原色金屬.jpg" alt="原色" width="30" height="30">
                                     </label>
                                     <input type="radio" class="btn-check" name="choose_color_option" id="blue_color"
-                                        v-model="colorResult" autocomplete="off" @click="colorHandler(2)">
+                                        :checked="colorResult === '藍色鈦金屬'" autocomplete="off"
+                                        @click="colorHandler(2)">
                                     <label class="btn rounded-4" for="blue_color">
                                         <img src="./藍色金屬.jpg" alt="藍色" width="30" height="30">
                                     </label>
                                     <input type="radio" class="btn-check" name="choose_color_option" id="white_color"
-                                        v-model="colorResult" autocomplete="off" @click="colorHandler(3)">
+                                        :checked="colorResult === '白色鈦金屬'" autocomplete="off"
+                                        @click="colorHandler(3)">
                                     <label class="btn rounded-4" for="white_color">
                                         <img src="./白色金屬.jpg" alt="白色" width="30" height="30">
                                     </label>
                                     <input type="radio" class="btn-check" name="choose_color_option" id="black_color"
-                                        v-model="colorResult" autocomplete="off" @click="colorHandler(4)">
+                                        :checked="colorResult === '黑色鈦金屬'" autocomplete="off"
+                                        @click="colorHandler(4)">
                                     <label class="btn rounded-4" for="black_color">
                                         <img src="./黑色金屬.jpg" alt="黑色" width="30" height="30">
                                     </label>
@@ -1786,7 +1790,7 @@
                         './iphone-15-pro-naturaltitanium-result.jpg',
                         './iphone-15-pro-bluetitanium-result.jpg',
                         './iphone-15-pro-whitetitanium-result.jpg',
-                        './iphone-15-pro-blacktitanium-result.jpg'
+                        './iphone-15-pro-blacktitanium-result.jpg',
                     ],
                     i15pro_box: [
                         './natural_box.png',
@@ -1803,30 +1807,13 @@
                         './i15/iphone-15-green-result.jpg',
                         './i15/iphone-15-black-result.jpg',
                     ],
-                    i15_box:[
+                    i15_box: [
                         './i15/blue_box.png',
                         './i15/pink-box.png',
                         './i15/yelloe-box.png',
                         './i15/green-box.png',
                         './i15/black-box.png',
                     ],
-
-                    // i15pro_color: [{
-                    //     name: ' - 原色鈦金屬',
-                    //     img: './iphone-15-pro-naturaltitanium-result.jpg" alt="" width="70%" height="70%',
-                    // },
-                    // {
-                    //     name: ' - 藍色鈦金屬',
-                    //     img: './iphone-15-pro-bluetitanium-result.jpg" alt="" width="70%" height="70%',
-                    // },
-                    // {
-                    //     name: ' - 白色鈦金屬',
-                    //     img: './iphone-15-pro-whitetitanium-result.jpg" alt="" width="70%" height="70%',
-                    // },
-                    // {
-                    //     name: ' - 黑色鈦金屬',
-                    //     img: './iphone-15-pro-blacktitanium-result.jpg" alt="" width="70%" height="70%',
-                    // },]
                 };
             },
             methods: {
@@ -1860,7 +1847,6 @@
                 },
                 updateBytesm256() {
                     this.byte = this.$refs.sm256.textContent;
-
                 },
                 updateBytesm512() {
                     this.byte = this.$refs.sm512.textContent;
@@ -1876,7 +1862,7 @@
                     this.i15colorResult = this.i15_color[type - 1];
                     this.i15imgResult = this.i15_img[type - 1];
                     this.boxResult = this.i15pro_box[type - 1];
-                    this.i15boxResult= this.i15_box[type - 1];
+                    this.i15boxResult = this.i15_box[type - 1];
                 },
             },
             computed: {
@@ -1896,23 +1882,7 @@
                     }
                     return '0';
                 },
-                // displayResult() {
-                //     if (this.type === 1) return "1";
-                //     if (this.type === 2) return "2";
-                //     if (this.type === 3) return "3";
-                //     if (this.type === 4) return "4";
-
-                // },
-
             },
-            watch: {
-                colorResult(newValue) {
-                    const type = this.i15pro_color.indexOf(newValue) + 1;
-                    this.imgResult = this.i15pro_img[type - 1];
-                    this.i15colorResult = this.i15_color[type - 1];
-                    this.i15imgResult = this.i15_img[type - 1];
-                }
-            }
         });
         app.mount("#app");
     </script>
@@ -1921,7 +1891,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!-- <script src="./main.js"></script> -->
 </body>
 
 </html>
